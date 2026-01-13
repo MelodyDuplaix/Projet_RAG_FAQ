@@ -4,4 +4,8 @@ version = "0.1.0"
 description = "Projet of an intelligent assistant to anwser citizens questions"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "ipython>=9.9.0",
+    "marimo>=0.19.2",
+    "sentence-transformers>=5.2.0",
+]
