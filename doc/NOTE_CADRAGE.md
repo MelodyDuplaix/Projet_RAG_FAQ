@@ -120,7 +120,7 @@ Question → Recherche sémantique → Q&A extractif → Réponse
 |-------|--------|--------|-----------------|
 | LLM (génération) | Mistral-7B-Instruct-v0.2 | HuggingFace | Modèle LLM open-source performant et léger |
 | Embeddings | all-MiniLM-L6-v2 | HuggingFace | Légèreté et performance, basé sur un ancien benchmark pour un précédent projet |
-| Q&A extractif | roberta-base-squad2 | HuggingFace | Modèle d'extractif de questions-réponses performant |
+| Q&A extractif | camembert-base-squadFR-fquad-piaf | HuggingFace | Modèle d'extractif de questions-réponses performant spécialisé en francais |
 
 ---
 
