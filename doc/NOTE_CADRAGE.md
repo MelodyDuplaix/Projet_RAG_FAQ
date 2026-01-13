@@ -53,8 +53,7 @@ Cette stratégie consiste à utiliser un modèle de langage large (LLM) pour gé
 - Moins de complexité technique
 
 **Inconvénients attendus** :
-- Possible manque de précision si le LLM n'est pas suffisamment spécialisé
-- Plus de cout en ressources pour des questions complexes
+- Imprécisions et hallucinations dûes au manque d'information contextuelle
 
 **Schéma simplifié** :
 ```
@@ -119,9 +118,9 @@ Question → Recherche sémantique → Q&A extractif → Réponse
 
 | Usage | Modèle | Source | Raison du choix |
 |-------|--------|--------|-----------------|
-| LLM (génération) | | HuggingFace | |
-| Embeddings | | | |
-| Q&A extractif | | | |
+| LLM (génération) | Mistral-7B-Instruct-v0.2 | HuggingFace | Modèle LLM open-source performant et léger |
+| Embeddings | all-MiniLM-L6-v2 | HuggingFace | Légèreté et performance, basé sur un ancien benchmark pour un précédent projet |
+| Q&A extractif | roberta-base-squad2 | HuggingFace | Modèle d'extractif de questions-réponses performant |
 
 ---
 
@@ -158,11 +157,61 @@ Question → Recherche sémantique → Q&A extractif → Réponse
 
 ---
 
-## 7. Ressources consultées (Veille J1)
+## 7. Ressources consultées (Veille J1) triés par pertinence
 
-| Source | URL | Pertinence | Notes |
-|--------|-----|------------|-------|
-| | | | |
-| | | | |
+[Rapport de veille technique](RAPPORT_VEILLE_TECHNIQUE.md)
+
+### 7.1 Sentence Transformers
+
+- [huggingface/sentence-transformers: State-of-the-Art Text Embeddings](https://github.com/huggingface/sentence-transformers)
+  - repo du framework Sentence Transformers pour la génération d'embeddings via Hugging Face en local
+- [Semantic Search — Sentence Transformers documentation](https://www.sbert.net/examples/sentence_transformer/applications/semantic-search/README.html)
+  - documentation spécifique sur la rechercher sémantique Sentence Transformers
+- MODEL: [sentence-transformers/all-MiniLM-L6-v2 · Hugging Face](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) 
+  - modèle de base pour les embeddings sémantiques
+- [A Tutorial With Sentence-Transformers for Semantic Search](https://dzone.com/articles/sentence-transformers-semantic-search-tutorial)
+  - tutoriel sur la recherche sémantique
+- [A Step-by-Step Guide to Similarity and Semantic Search Using Sentence Transformers | by Hassanmustafa | Medium](https://medium.com/@hassanqureshi700/a-step-by-step-guide-to-similarity-and-semantic-search-using-sentence-transformers-7091723a7bf9)
+  - Tuto avec exemple de code pour la construction d'une rechercher sémantique sur une faq
+- [Cosine similarity - Wikipedia](https://en.wikipedia.org/wiki/Cosine_similarity)
+  - Page d'explications sur la similarité cosinus utilisée en recherche sémantique
+
+### 7.2 RAG (Retrieval Augmented Generation)
+
+- [Retrieval-Augmented Generation (RAG) | Pinecone](https://www.pinecone.io/learn/retrieval-augmented-generation/)
+  - explications techniques sur le RAG
+- [Retrieval Augmented Generation (RAG) for LLMs | Prompt Engineering Guide](https://www.promptingguide.ai/research/rag)
+  - explications techniques sur le RAG et les différentes architectures possibles
+
+### 7.3 LLM
+
+- [Inference Providers](https://huggingface.co/docs/inference-providers/index)
+  - documentation de base sur l'inférence sur les modèles hébergés par Hugging Face
+- [Feature Extraction](https://huggingface.co/docs/inference-providers/en/tasks/feature-extraction)
+  - documentation sur l'embedding avec les modèles Hugging Face
+- [Chat Completion](https://huggingface.co/docs/inference-providers/en/tasks/chat-completion)
+  - documentation sur l'utilisation des modèles de type chat (LLM)
+- [Serverless Inference API - Hugging Face Open-Source AI Cookbook](https://huggingface.co/learn/cookbook/en/enterprise_hub_serverless_inference_api)
+  - documentation sur l'utilisation de l'API serverless de Hugging Face
+- MODEL: [mistralai/Mistral-7B-Instruct-v0.2 · Hugging Face](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2)
+  - modèle LLM open-source performant et léger
+
+### 7.4 Q&A extractif
+
+- [API Reference](https://huggingface.co/docs/inference-providers/en/tasks/question-answering)
+  - documentation sur l'utilisation des modèles de Q&A extractif
+- [What is Question Answering? - Hugging Face](https://huggingface.co/tasks/question-answering)
+  - documentation huggingface sur le Q&A extractif
+- [Question answering](https://huggingface.co/docs/transformers/tasks/question_answering)
+  - Tutoriel huggingface sur le Q&A extractif pas à pas
+- [Question answering - Hugging Face LLM Course](https://huggingface.co/learn/llm-course/chapter7/7)
+  - Cours huggingface sur le Q&A extractif
+- MODEL: [deepset/roberta-base-squad2 · Hugging Face](https://huggingface.co/deepset/roberta-base-squad2)
+  - modèle fréquemment utilisé pour le Q&A extractif
+- MODEL: [AgentPublic/camembert-base-squadFR-fquad-piaf · Hugging Face](https://huggingface.co/AgentPublic/camembert-base-squadFR-fquad-piaf)
+  - modèle de Q&A extractif en français basé sur CamemBERT
+
+
+
 
 ---
