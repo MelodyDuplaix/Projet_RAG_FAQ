@@ -1,8 +1,8 @@
 # Rapport de Benchmark - Stratégies FAQ Intelligent
 
-**Étudiant(s)** : [Nom(s)]
+**Étudiant(s)** : Melody Duplaix
 
-**Date** : [Date]
+**Date** : 2026-01-13
 
 **Version** : 1.0
 
@@ -18,6 +18,46 @@
 
 ## 1. Protocole d'évaluation
 
+### Cadre du benchmark
+
+- Objectif : comparer 3 stratégies (LLM seul, Recherche sémantique + LLM, Q&A extractif) pour une FAQ citoyenne.
+- Jeux de données :  
+  - `faq_base.json` (≈70 QA) pour construire le corpus / index.
+  - `golden_set.json` (≈30 questions : faciles, moyennes, hors scope) pour l’évaluation.
+- Critères et poids : Exactitude 30%, Pertinence 20%, Hallucinations 20%, Latence 15%, Complexité 15%.
+
+### Conditions de test
+
+- Environnement : Python 3.10+, même machine, mêmes versions de libs, même conditions réseau.
+- Modèles :  
+  - LLM : Mistral‑7B‑Instruct‑v0.2 (stratégies A et B).
+  - Embeddings : all‑MiniLM‑L6‑v2 (stratégies B et C).
+  - Q&A extractif : camembert‑base‑squadFR‑fquad‑piaf (stratégie C).
+- Paramètres : température, top‑k, max_tokens fixés et documentés pour toute la campagne.
+
+### Méthode de mesure
+
+- Pour chaque question du golden set : exécuter A, B, C et logguer question, réponse, temps, docs récupérés (B/C).
+- Mesures automatiques :  
+  - Exactitude : comparaison à la réponse de référence et aux keywords.
+  - Latence : temps moyen par stratégie (start/end timestamp).
+- Mesures manuelles :  
+  - Pertinence : note 0–2 par réponse.
+  - Hallucination : booléen « info inventée ».
+  - Complexité : note 1–3 (implémentation, infra, maintenance).
+
+### Agrégation et scoring
+
+- Calculer, par stratégie : moyennes des métriques + taux d’hallucination.
+- Appliquer la pondération pour obtenir un score global par stratégie (tableau comparatif).
+- Conserver les résultats bruts dans un fichier CSV/JSON + quelques exemples de réponses typiques (bonnes, limites, hors scope).
+
+### Interprétation et recommandation
+
+- Analyser forces/faiblesses de chaque stratégie (précision, robustesse hors scope, risque d’hallucination, latence, complexité).
+- Choisir une stratégie recommandée (A/B/C) + 3–5 arguments alignés avec les contraintes client (open source, hébergement interne, simplicité).
+- Documenter les limites du benchmark (taille du golden set, types de questions peu représentés) et proposer 2–3 pistes d’amélioration (plus de données, tuning, optimisation index).
+
 ### 1.1 Critères d'évaluation
 
 | Critère | Description | Méthode de mesure | Poids |
@@ -28,15 +68,19 @@
 | Latence | Temps de réponse moyen | Mesure automatique | 15% |
 | Complexité | Facilité de maintenance | Évaluation qualitative | 15% |
 
-### 1.2 Jeu de test (Golden Set)
+### 1.2 Jeu d'entrainement (Faq Base)
 
-- **Nombre de questions** : [X] questions
+- **Nombre de questions** : 70 questions
+
+### 1.3 Jeu de test (Golden Set)
+
+- **Nombre de questions** : 30 questions
 - **Répartition** :
-  - Questions faciles : [X]
-  - Questions moyennes : [X]
-  - Questions hors scope : [X]
+  - Questions faciles : 17
+  - Questions moyennes : 8
+  - Questions hors scope : 5
 
-### 1.3 Conditions de test
+### 1.4 Conditions de test
 
 - **Date des tests** : [Date]
 - **Environnement** : [Local / Cloud]
