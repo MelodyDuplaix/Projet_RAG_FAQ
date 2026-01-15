@@ -20,7 +20,7 @@ Le client est une collectivitée territoriale (la Communauté de Communes Val de
 Développer et déployer une API d'assistance FAQ intégrant un LLM, en suivant une démarche de benchmark pour sélectionner la meilleure approche technique parmi les 3 stratégies proposées.
 
 **Objectifs secondaires** :
-- [ ] Préparer un protocole de benchmark
+- [x] Préparer un protocole de benchmark
 - [ ] Développer les 3 stratégies de réponse aux questions
 - [ ] Réaliser un benchmark comparatif des 3 stratégies
 - [ ] Implémenter l'API avec la stratégie retenue

@@ -32,17 +32,17 @@ Concevoir, développer et déployer une API d'assistance FAQ intégrant un LLM, 
 ## Livrables attendus
 
 ### Phase 1 - Cadrage & Veille (J1)
-- [ ] Note de cadrage complétée
-- [ ] Rapport de veille technique
+- [x] Note de cadrage complétée
+- [x] Rapport de veille technique
 
 ### Phase 2 - Données & Conception (J2)
-- [ ] Protocole de benchmark défini
-- [ ] Grille d'évaluation préparée
+- [x] Protocole de benchmark défini
+- [x] Grille d'évaluation préparée
 - **JALON 1** : Validation du protocole par le formateur
 
 ### Phase 3 - Implémentation (J3-J5)
-- [ ] Script stratégie A fonctionnel
-- [ ] Script stratégie B fonctionnel
+- [x] Script stratégie A fonctionnel
+- [x] Script stratégie B fonctionnel
 - [ ] Script stratégie C fonctionnel
 - **JALON 2** : Démonstration des 3 stratégies
 
