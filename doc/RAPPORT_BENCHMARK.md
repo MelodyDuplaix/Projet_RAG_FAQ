@@ -95,37 +95,31 @@
 ### 2.1 Stratégie A - LLM seul
 
 **Configuration** :
-- Modèle : [X]
-- Paramètres : temperature=[X], max_tokens=[X]
+- Modèle : mistral-7B-Instruct-v0.2
+- Paramètres : temperature=0.7, max_tokens=1024
 
 **Résultats** :
 
 | Métrique | Valeur | Commentaire |
 |----------|--------|-------------|
-| Exactitude | [X]% | |
-| Pertinence moyenne | [X]/2 | |
-| Taux d'hallucinations | [X]% | |
-| Latence moyenne | [X]s | |
-| Complexité | [Faible/Moyenne/Élevée] | |
+| Exactitude | 27.4% | |
+| Pertinence moyenne | 0.667/2 | |
+| Taux d'hallucinations | 46.7% | |
+| Latence moyenne | 7.193s | |
+| Complexité | Faible | |
 
 **Observations qualitatives** :
-- [Observation 1]
-- [Observation 2]
-
-**Exemples de réponses** :
-
-| Question | Réponse | Évaluation |
-|----------|---------|------------|
-| [Question 1] | [Réponse tronquée...] | ✅/⚠️/❌ |
-| [Question 2] | [Réponse tronquée...] | ✅/⚠️/❌ |
+-  Le modèle répond en se basant uniquement sur internet, ce qui entraîne des réponses hors sujet.
+-  Le modèle vire parfois sur de l'anglais.
+-  Il ne se base pas toujours en france.
 
 ---
 
 ### 2.2 Stratégie B - Recherche sémantique + LLM
 
 **Configuration** :
-- Modèle LLM : [X]
-- Modèle embeddings : [X]
+- Modèle LLM : mistral-7B-Instruct-v0.2
+- Modèle embeddings : all-MiniLM-L6-v2
 - Top-K documents : [X]
 
 **Résultats** :

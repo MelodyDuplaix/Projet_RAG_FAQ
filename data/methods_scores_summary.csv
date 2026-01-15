@@ -1,0 +1,2 @@
+method,keywords_mean,similarity_mean,exactitude_score,pertinence_mean,hallucinations_rate,latence_mean,latence_score,complexite_score,global_score
+rag,0.6327777777777778,0.585367946823438,0.6090728623006079,1.6666666666666667,0.06666666666666667,5.733068712832998,0.14852068835923718,1.0,0.7083332952774013

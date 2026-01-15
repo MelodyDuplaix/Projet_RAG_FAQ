@@ -5,8 +5,12 @@ description = "Projet of an intelligent assistant to anwser citizens questions"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "accelerate>=1.12.0",
+    "huggingface-hub>=0.24.0",
     "ipython>=9.9.0",
     "marimo>=0.19.2",
     "pandas>=2.3.3",
+    "python-dotenv>=1.2.1",
     "sentence-transformers>=5.2.0",
+    "transformers[torch]>=4.57.3",
 ]
