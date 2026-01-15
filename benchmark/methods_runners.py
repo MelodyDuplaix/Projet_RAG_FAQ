@@ -80,8 +80,8 @@ class LLMOnlyRunner(BaseMethodRunner):
         completion = client.chat.completions.create(
             model=self.model_id,
             messages=messages,
-            max_tokens=1024,
-            temperature=0.7,
+            max_tokens=2048,
+            temperature=0.3,
             top_p=0.9,
         )
 
@@ -93,7 +93,7 @@ class RAGRunner(BaseMethodRunner):
         self,
         faq_df,
         embed_model_name="sentence-transformers/all-MiniLM-L6-v2",
-        top_k=3,
+        top_k=6,
         model_id=MODEL_ID,
         **kwargs,
     ):
@@ -104,26 +104,57 @@ class RAGRunner(BaseMethodRunner):
         self.model_id = model_id
 
         self._embed_model = SentenceTransformer(self.embed_model_name)
+
         self._faq_questions = faq_df["question"].fillna("").tolist()
         self._faq_answers = faq_df["answer"].fillna("").tolist()
-        self._faq_embeddings = self._embed_model.encode(
+        self._faq_categories = faq_df.get("category", "").fillna("").tolist()
+        self._faq_keywords = faq_df.get("keywords", "").tolist()
+
+        self._faq_corpus = []
+        for q, a, c, kws in zip(
             self._faq_questions,
+            self._faq_answers,
+            self._faq_categories,
+            self._faq_keywords,
+        ):
+            if isinstance(kws, list):
+                kws_str = ", ".join(map(str, kws))
+            else:
+                kws_str = str(kws) if kws is not None else ""
+            corpus_text = (
+                f"Question: {q}\n"
+                f"Réponse: {a}\n"
+                f"Catégorie: {c}\n"
+                f"Mots-clés: {kws_str}"
+            )
+            self._faq_corpus.append(corpus_text)
+
+        self._faq_embeddings = self._embed_model.encode(
+            self._faq_corpus,
             convert_to_tensor=True,
         )
 
     def _build_context(self, user_question):
         q_emb = self._embed_model.encode(user_question, convert_to_tensor=True)
         cos_scores = util.cos_sim(q_emb, self._faq_embeddings)[0]
-        top_results = cos_scores.topk(k=min(self.top_k, len(self._faq_questions)))
+        top_results = cos_scores.topk(k=min(self.top_k, len(self._faq_corpus)))
 
         context_chunks = []
         for score, idx in zip(top_results.values, top_results.indices):
             idx = int(idx)
             q = self._faq_questions[idx]
             a = self._faq_answers[idx]
-            context_chunks.append(f"- Q: {q}\n  R: {a}")
+            c = self._faq_categories[idx]
+            kws = self._faq_keywords[idx]
+            if isinstance(kws, list):
+                kws_str = ", ".join(map(str, kws))
+            else:
+                kws_str = str(kws) if kws is not None else ""
+            context_chunks.append(
+                f"- Catégorie: {c}\n  Mots-clés: {kws_str}\n  Q: {q}\n  R: {a}"
+            )
 
-        context = "\n".join(context_chunks)
+        context = "\n\n".join(context_chunks)
         return context
 
     def answer_one(self, question, system_prompt=None):
@@ -133,9 +164,9 @@ class RAGRunner(BaseMethodRunner):
 
         rag_system_prompt = (
             (system_prompt or "")
-            + "\n\nTu disposes des informations de contexte suivantes (FAQ officielle) :\n"
+            + "\n\nTu disposes de la FAQ suivante comme contexte :\n"
             + context
-            + "\n\nUtilise en priorité ces informations pour répondre à la question."
+            + "\n\nUtilise uniquement ces informations pour répondre à la question."
         )
 
         messages = [
@@ -146,8 +177,8 @@ class RAGRunner(BaseMethodRunner):
         completion = client.chat.completions.create(
             model=self.model_id,
             messages=messages,
-            max_tokens=1024,
-            temperature=0.7,
+            max_tokens=2048,
+            temperature=0.3,
             top_p=0.9,
         )
 
