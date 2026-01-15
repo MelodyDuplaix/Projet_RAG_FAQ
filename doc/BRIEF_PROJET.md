@@ -43,7 +43,7 @@ Concevoir, développer et déployer une API d'assistance FAQ intégrant un LLM, 
 ### Phase 3 - Implémentation (J3-J5)
 - [x] Script stratégie A fonctionnel
 - [x] Script stratégie B fonctionnel
-- [ ] Script stratégie C fonctionnel
+- [x] Script stratégie C fonctionnel
 - **JALON 2** : Démonstration des 3 stratégies
 
 ### Phase 4 - Benchmark (J6)
