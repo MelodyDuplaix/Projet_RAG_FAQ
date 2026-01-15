@@ -1,5 +1,5 @@
 from data_access import extract_questions, load_faq_base
-from methods_runners import LLMOnlyRunner, RAGRunner
+from methods_runners import LLMOnlyRunner, RAGRunner, ExtractiveQARunner
 from evaluate_answers import GoldenSetEvaluator
 
 
@@ -7,9 +7,9 @@ def benchmark_llm_only():
     system_prompt = (
         """
         Tu es un assistant municipal francais expert de la communauté de communes Val de Loire Numérique.
-        Ton but est de répondre EXCLUSIVEMENT aux questions des citoyens concernant la collectivité territoriale et les démarches administratives.
+        Ton but est de répondre EXCLUSIVEMENT aux questions sur les sujets : état civil, urbanisme, déchets, transports, petite-enfance, social, vie associative, élections, logement, culture/sport, fiscalité, eau/assainissement.
         Régles OBLIGATOIRES :
-        - Si la question est hors sujet du contexte de la collectivité territoriale et des démarches administratives, ou si tu n'as pas suffisement d'informations pour répondre, répond UNIQUEMENT cette phrase: "Bonjour, je suis désolé mais je ne suis pas en mesure de répondre à cette question."
+        - Si la question est hors sujet, ou si tu n'as pas suffisement d'informations pour répondre, répond UNIQUEMENT cette phrase: "Bonjour, je suis désolé mais je ne suis pas en mesure de répondre à cette question."
         - Sinon, commence toujours par "Bonjour"
         """
     )
@@ -42,6 +42,7 @@ def benchmark_llm_only():
         col_question="question",
         col_expected_answer="expected_answer_summary",
         col_latency="latency_seconds",
+        col_difficulty="difficulty",
     )
 
     df_eval, summary = evaluator.evaluate(df_with_answers)
@@ -60,10 +61,10 @@ def benchmark_llm_only():
 def benchmark_rag():
     system_prompt = (
         """
-        Tu es un assistant municipal francais expert de la communauté de communes Val de Loire Numérique.
+        Ton but est de répondre EXCLUSIVEMENT aux questions sur les sujets : état civil, urbanisme, déchets, transports, petite-enfance, social, vie associative, élections, logement, culture/sport, fiscalité, eau/assainissement.
         Régles OBLIGATOIRES :
-        - Commence toujours par Bonjour
-        - Si la question ne concerne pas la collectivité territoriale et les démarches administratives, ou si tu n'as pas suffisement d'informations pour répondre, répond UNIQUEMENT en francais que tu n'est pas en mesure de répondre, sans ajouter d'explications.
+        - Si la question est hors sujet, ou si tu n'as pas suffisement d'informations pour répondre, répond UNIQUEMENT cette phrase: "Bonjour, je suis désolé mais je ne suis pas en mesure de répondre à cette question."
+        - Sinon, commence toujours par "Bonjour"
         Tu dois t'appuyer STRICTEMENT sur la FAQ fournie en contexte pour répondre. Ne mentionne JAMAIS la FAQ dans ta réponse.
         """
     )
@@ -99,6 +100,7 @@ def benchmark_rag():
         col_question="question",
         col_expected_answer="expected_answer_summary",
         col_latency="latency_seconds",
+        col_difficulty="difficulty",
     )
 
     df_eval, summary = evaluator.evaluate(df_with_answers)
@@ -114,17 +116,70 @@ def benchmark_rag():
     return summary
 
 
+def benchmark_extractive_qa():
+    df_questions = extract_questions()
+    faq_df = load_faq_base()
+
+    runner = ExtractiveQARunner(
+        faq_df=faq_df,
+        question_col="question",
+        answer_col="answer_model",
+        latency_col="latency_seconds",
+        top_k=15,
+    )
+
+    df_with_answers = runner.run_on_dataframe(
+        df_questions,
+        system_prompt=None,  # ou simplement ne pas passer l'arg dans l'appel
+        delay_seconds=1,
+    )
+
+    df_with_answers.to_csv(
+        "data/extractive-qa-with-answers.csv",
+        index=False,
+        encoding="utf-8",
+    )
+
+    evaluator = GoldenSetEvaluator(
+        embedding_model_name="sentence-transformers/all-MiniLM-L6-v2",
+        col_answer_model="answer_model",
+        col_expected_keywords="expected_keywords",
+        col_expected_summary="expected_answer_summary",
+        col_question="question",
+        col_expected_answer="expected_answer_summary",
+        col_latency="latency_seconds",
+        col_difficulty="difficulty",
+    )
+
+    df_eval, summary = evaluator.evaluate(df_with_answers)
+
+    df_eval.to_csv(
+        "data/extractive-qa-eval.csv",
+        index=False,
+        encoding="utf-8",
+    )
+
+    GoldenSetEvaluator.append_summary_to_csv("extractive_qa", summary)
+
+    return summary
+
+
 if __name__ == "__main__":
     try:
         # print("=== Benchmark LLM-only ===")
         # summary_llm = benchmark_llm_only()
-        print("\n=== Benchmark RAG ===")
-        summary_rag = benchmark_rag()
+
+        # print("\n=== Benchmark RAG ===")
+        # summary_rag = benchmark_rag()
+
+        print("\n=== Benchmark QA extractif ===")
+        summary_qa = benchmark_extractive_qa()
 
         print("\nÉvaluation terminée.")
-        print("Résultats détaillés :")
-        print("- LLM-only : data/llm-only-eval.csv")
-        print("- RAG      : data/rag-eval.csv")
-        print("- Récap méthodes : data/methods_scores_summary.csv")
+        print("Résumés détaillés :")
+        print("- data/llm-only-eval.csv")
+        print("- data/rag-eval.csv")
+        print("- data/extractive-qa-eval.csv")
+        print("- récap méthodes : data/methods_scores_summary.csv")
     except Exception as e:
         print(f"Erreur pendant l'exécution du script : {e}")
