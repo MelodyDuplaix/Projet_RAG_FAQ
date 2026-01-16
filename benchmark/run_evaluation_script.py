@@ -61,7 +61,7 @@ def benchmark_llm_only():
 def benchmark_rag():
     system_prompt = (
         """
-        Ton but est de répondre EXCLUSIVEMENT aux questions sur les sujets : état civil, urbanisme, déchets, transports, petite-enfance, social, vie associative, élections, logement, culture/sport, fiscalité, eau/assainissement.
+        Ton but est de répondre en francais EXCLUSIVEMENT aux questions sur les sujets : état civil, urbanisme, déchets, transports, petite-enfance, social, vie associative, élections, logement, culture/sport, fiscalité, eau/assainissement.
         Régles OBLIGATOIRES :
         - Si la question est hors sujet, ou si tu n'as pas suffisement d'informations pour répondre, répond UNIQUEMENT cette phrase: "Bonjour, je suis désolé mais je ne suis pas en mesure de répondre à cette question."
         - Sinon, commence toujours par "Bonjour"
@@ -168,8 +168,8 @@ if __name__ == "__main__":
         # print("=== Benchmark LLM-only ===")
         # summary_llm = benchmark_llm_only()
 
-        # print("\n=== Benchmark RAG ===")
-        # summary_rag = benchmark_rag()
+        print("\n=== Benchmark RAG ===")
+        summary_rag = benchmark_rag()
 
         print("\n=== Benchmark QA extractif ===")
         summary_qa = benchmark_extractive_qa()
