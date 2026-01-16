@@ -10,7 +10,7 @@
 
 ## Résumé exécutif
 
-La méthode A (LLM seul) a montré des performances limitées avec une exactitude de 33.5% et un taux d'hallucinations élevé de 36.6%. La méthode C (Q&A extractif) a offert une latence très faible et aucune hallucinations, mais une exactitude moyenne de 42.7%. La méthode B (Recherche sémantique + LLM) s'est démarquée avec la meilleure performance globale, atteignant une exactitude de 61.9%, une pertinence élevée et un taux d'hallucinations minimal de 3.3%.
+La méthode A (LLM seul) a montré des performances limitées avec un score global de 38% et un taux d'hallucinations élevé de 36.6%. La méthode C (Q&A extractif) a offert une latence très faible et aucune hallucinations, mais une pertinence assez faible, avec un score global de 63%. La méthode B (Recherche sémantique + LLM) s'est démarquée avec la meilleure performance globale, atteignant un score global de 70%, une pertinence élevée et un taux d'hallucinations minimal de 3.3%.
 
 **Recommandation** : Stratégie B - Recherche sémantique + LLM
 
@@ -44,7 +44,7 @@ La méthode A (LLM seul) a montré des performances limitées avec une exactitud
 - Mesures manuelles :  
   - Pertinence : note 0–2 par réponse.
   - Hallucination : booléen « info inventée ».
-  - Complexité : note 1–3 (implémentation, infra, maintenance).
+  - Complexité : note 0-1 (implémentation, infra, maintenance).
 
 ### Agrégation et scoring
 
@@ -82,11 +82,11 @@ La méthode A (LLM seul) a montré des performances limitées avec une exactitud
 
 ### 1.4 Conditions de test
 
-- **Date des tests** : [Date]
-- **Environnement** : [Local / Cloud]
-- **Modèle LLM utilisé** : [Nom du modèle]
-- **Modèle d'embeddings** : [Nom du modèle]
-- **Nombre d'exécutions par question** : [X]
+- **Date des tests** : 2026-01-16
+- **Environnement** : Local
+- **Modèle LLM utilisé** : mistral-7B-Instruct-v0.2
+- **Modèle d'embeddings** : all-MiniLM-L6-v2
+- **Nombre d'exécutions par question** : 1
 
 ---
 
@@ -102,10 +102,10 @@ La méthode A (LLM seul) a montré des performances limitées avec une exactitud
 
 | Métrique | Valeur | Commentaire |
 |----------|--------|-------------|
-| Exactitude | 33.5% | |
-| Pertinence moyenne | 1 | |
-| Taux d'hallucinations | 36.6% | |
-| Latence moyenne | 6.90s | |
+| Exactitude | 31.2% | |
+| Pertinence moyenne | 0.86 | |
+| Taux d'hallucinations | 33.3% | |
+| Latence moyenne | 7.45s | |
 | Complexité | Faible | |
 
 **Observations qualitatives** :
@@ -126,10 +126,10 @@ La méthode A (LLM seul) a montré des performances limitées avec une exactitud
 
 | Métrique | Valeur | Commentaire |
 |----------|--------|-------------|
-| Exactitude | 61.9% | |
-| Pertinence moyenne | 1.76 | |
-| Taux d'hallucinations | 3.3%% | |
-| Latence moyenne | 5.81s | |
+| Exactitude | 62.8% | |
+| Pertinence moyenne | 1.8 | |
+| Taux d'hallucinations | 3.3% | |
+| Latence moyenne | 5.63s | |
 | Complexité | Moyenne | |
 
 **Observations qualitatives** :
@@ -152,9 +152,9 @@ La méthode A (LLM seul) a montré des performances limitées avec une exactitud
 | Métrique | Valeur | Commentaire |
 |----------|--------|-------------|
 | Exactitude | 42.7% | |
-| Pertinence moyenne | 1.06 | |
+| Pertinence moyenne | 1.03 | |
 | Taux d'hallucinations | 0% | |
-| Latence moyenne | 1.03s | |
+| Latence moyenne | 0.82s | |
 | Complexité | Moyenne | |
 
 **Observations qualitatives** :
@@ -170,11 +170,11 @@ La méthode A (LLM seul) a montré des performances limitées avec une exactitud
 
 | Critère | Poids | Stratégie A | Stratégie B | Stratégie C |
 |---------|-------|-------------|-------------|-------------|
-| Exactitude | 30% | 33.5% | 61.9% | 42.7% |
-| Pertinence | 20% | 1/2 | 1.76/2 | 1.06/2 |
-| Hallucinations | 20% | 36.6% | 3.3% | 0% |
-| Latence | 15% | 6.90s | 5.81s | 1.03s |
-| **Score pondéré** | 100% | **47.3%** | **70.3%** | **64.6%** |
+| Exactitude | 30% | 31.2% | 62.8% | 42.7% |
+| Pertinence | 20% | 0.86/2 | 1.8/2 | 1.03/2 |
+| Hallucinations | 20% | 33.3% | 3.3% | 0% |
+| Latence | 15% | 7.45s | 5.63s | 0.82s |
+| **Score pondéré** | 100% | **38%** | **70%** | **63%** |
 
 ### 3.2 Graphique comparatif
 
@@ -183,7 +183,7 @@ xychart
     title "Comparaison des méthodes"
     x-axis ["Méthode A: LLM seul", "Méthode B RAG+LLM", "Méthode C RAG+Q&A extractif"]
     y-axis "Score" 0 --> 100
-    bar [33.5, 61.9, 42.7]
+    bar [38, 70, 63]
 ```
 
 ### 3.3 Analyse des forces et faiblesses
@@ -210,8 +210,6 @@ xychart
 
 ### 4.2 Justification
 
-[Argumenter le choix en 3-5 points]
-
 1. La méthode B offre le meilleur compromis entre exactitude, pertinence et taux d'hallucinations.
 2. Elle permet de conserver la richesse des réponses issues du LLM tout en utilisant les documents pour guider la réponse.
 3. Elle est plus robuste que la méthode A pour des questions complexes ou hors scope.
@@ -233,9 +231,9 @@ Les réponses sont plus variables que la méthode C, ce qui peut poser problème
 
 ### 5.1 Détail des résultats bruts
 
-[Lien vers le Détail des résultats LLM seul](data/llm-with-answers.csv)
-[Lien vers le Détail des résultats RAG](data/rag-with-answers.csv)
-[Lien vers le Détail des résultats Q&A](data/extractive-qa-with-answers.csv)
+[Lien vers le Détail des résultats LLM seul](data/llm-eval.csv)
+[Lien vers le Détail des résultats RAG](data/rag-eval.csv)
+[Lien vers le Détail des résultats Q&A](data/extractive-qa-eval.csv)
 
 ### 5.2 Code du benchmark
 

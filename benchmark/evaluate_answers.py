@@ -33,19 +33,6 @@ def _compute_keywords_proportion(answer, expected_keywords):
     return count_present / len(expected_keywords)
 
 
-def _map_difficulty_to_score(difficulty):
-    if not isinstance(difficulty, str):
-        return 0.0
-    d = difficulty.strip().lower()
-    if d == "facile":
-        return 1.0
-    if d == "moyen":
-        return 0.7
-    if d == "difficile":
-        return 0.4
-    return 0.0
-
-
 class GoldenSetEvaluator:
     def __init__(
         self,
@@ -56,7 +43,7 @@ class GoldenSetEvaluator:
         col_question="question",
         col_expected_answer="expected_answer_summary",
         col_latency="latency_seconds",
-        col_difficulty="difficulty",
+        complexite_score_method=1.0,
     ):
         self.embedding_model_name = embedding_model_name
         self.col_answer_model = col_answer_model
@@ -65,7 +52,7 @@ class GoldenSetEvaluator:
         self.col_question = col_question
         self.col_expected_answer = col_expected_answer
         self.col_latency = col_latency
-        self.col_difficulty = col_difficulty
+        self.complexite_score_method = float(complexite_score_method)
 
         self._st_model = SentenceTransformer(self.embedding_model_name)
 
@@ -143,7 +130,6 @@ class GoldenSetEvaluator:
         col_pertinence = "manual_pertinence"
         col_hallucination = "manual_hallucination"
         col_latency = self.col_latency
-        col_difficulty = self.col_difficulty
 
         exactitude_weight = 0.30
         pertinence_weight = 0.20
@@ -163,12 +149,9 @@ class GoldenSetEvaluator:
         lat = df[col_latency].fillna(0.0)
         df["latence_score"] = lat.apply(lambda x: 1.0 / (1.0 + x) if x > 0 else 1.0)
 
-        if col_difficulty in df.columns:
-            df["complexite_score"] = df[col_difficulty].apply(_map_difficulty_to_score)
-        else:
-            df["complexite_score"] = 0.0
-
         df["hallucinations_score"] = 1.0 - df["hallucination_flag"].astype(float)
+
+        df["complexite_score"] = self.complexite_score_method
 
         df["global_score"] = (
             df["exactitude_score"] * exactitude_weight

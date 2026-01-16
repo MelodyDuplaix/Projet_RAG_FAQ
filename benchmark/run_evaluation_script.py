@@ -28,12 +28,6 @@ def benchmark_llm_only():
         delay_seconds=1,
     )
 
-    df_with_answers.to_csv(
-        "data/llm-only-with-answers.csv",
-        index=False,
-        encoding="utf-8",
-    )
-
     evaluator = GoldenSetEvaluator(
         embedding_model_name="sentence-transformers/all-MiniLM-L6-v2",
         col_answer_model="answer_model",
@@ -42,13 +36,13 @@ def benchmark_llm_only():
         col_question="question",
         col_expected_answer="expected_answer_summary",
         col_latency="latency_seconds",
-        col_difficulty="difficulty",
+        complexite_score_method=0.3,
     )
 
     df_eval, summary = evaluator.evaluate(df_with_answers)
 
     df_eval.to_csv(
-        "data/llm-with-answers.csv",
+        "data/llm-eval.csv",
         index=False,
         encoding="utf-8",
     )
@@ -86,12 +80,6 @@ def benchmark_rag():
         delay_seconds=1,
     )
 
-    df_with_answers.to_csv(
-        "data/rag-with-answers.csv",
-        index=False,
-        encoding="utf-8",
-    )
-
     evaluator = GoldenSetEvaluator(
         embedding_model_name="sentence-transformers/all-MiniLM-L6-v2",
         col_answer_model="answer_model",
@@ -100,7 +88,7 @@ def benchmark_rag():
         col_question="question",
         col_expected_answer="expected_answer_summary",
         col_latency="latency_seconds",
-        col_difficulty="difficulty",
+        complexite_score_method=0.7,
     )
 
     df_eval, summary = evaluator.evaluate(df_with_answers)
@@ -133,12 +121,6 @@ def benchmark_extractive_qa():
         delay_seconds=1,
     )
 
-    df_with_answers.to_csv(
-        "data/extractive-qa-with-answers.csv",
-        index=False,
-        encoding="utf-8",
-    )
-
     evaluator = GoldenSetEvaluator(
         embedding_model_name="sentence-transformers/all-MiniLM-L6-v2",
         col_answer_model="answer_model",
@@ -147,7 +129,7 @@ def benchmark_extractive_qa():
         col_question="question",
         col_expected_answer="expected_answer_summary",
         col_latency="latency_seconds",
-        col_difficulty="difficulty",
+        complexite_score_method=0.7,
     )
 
     df_eval, summary = evaluator.evaluate(df_with_answers)
@@ -165,8 +147,8 @@ def benchmark_extractive_qa():
 
 if __name__ == "__main__":
     try:
-        # print("=== Benchmark LLM-only ===")
-        # summary_llm = benchmark_llm_only()
+        print("=== Benchmark LLM-only ===")
+        summary_llm = benchmark_llm_only()
 
         print("\n=== Benchmark RAG ===")
         summary_rag = benchmark_rag()
