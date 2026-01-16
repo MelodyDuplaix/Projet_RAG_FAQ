@@ -137,7 +137,7 @@ class GoldenSetEvaluator:
 
         return df
 
-    def _compute_summary_scores(self, df):
+    def _compute_per_question_scores(self, df):
         col_keywords_prop = "keywords_proportion"
         col_similarity = "similarity_answer"
         col_pertinence = "manual_pertinence"
@@ -145,46 +145,51 @@ class GoldenSetEvaluator:
         col_latency = self.col_latency
         col_difficulty = self.col_difficulty
 
-        keywords_mean = df[col_keywords_prop].mean() if col_keywords_prop in df.columns else 0.0
-        similarity_mean = df[col_similarity].mean() if col_similarity in df.columns else 0.0
-
-        exactitude_score = (keywords_mean + similarity_mean) / 2.0
-
-        pertinence_mean = df[col_pertinence].mean() if col_pertinence in df.columns else 0.0
-
-        if col_hallucination in df.columns:
-            hallucinations_rate = df[col_hallucination].mean()
-        else:
-            hallucinations_rate = 0.0
-
-        if col_latency in df.columns:
-            latence_mean = df[col_latency].mean()
-        else:
-            latence_mean = 0.0
-
-        latence_score = 1.0 / (1.0 + latence_mean) if latence_mean > 0 else 1.0
-
-        if col_difficulty in df.columns:
-            difficulty_scores = df[col_difficulty].apply(_map_difficulty_to_score)
-            complexite_score = difficulty_scores.mean()
-        else:
-            complexite_score = 0.0
-
         exactitude_weight = 0.30
         pertinence_weight = 0.20
         hallucinations_weight = 0.20
         latence_weight = 0.15
         complexite_weight = 0.15
 
-        hallucinations_score = 1.0 - hallucinations_rate
+        df = df.copy()
 
-        global_score = (
-            exactitude_score * exactitude_weight
-            + (pertinence_mean / 2.0) * pertinence_weight
-            + hallucinations_score * hallucinations_weight
-            + latence_score * latence_weight
-            + complexite_score * complexite_weight
+        df["exactitude_score"] = (
+            df[col_keywords_prop].fillna(0.0) + df[col_similarity].fillna(0.0)
+        ) / 2.0
+
+        df["hallucination_flag"] = df[col_hallucination].fillna(False).astype(bool)
+        df["pertinence_norm"] = df[col_pertinence].fillna(0.0) / 2.0
+
+        lat = df[col_latency].fillna(0.0)
+        df["latence_score"] = lat.apply(lambda x: 1.0 / (1.0 + x) if x > 0 else 1.0)
+
+        if col_difficulty in df.columns:
+            df["complexite_score"] = df[col_difficulty].apply(_map_difficulty_to_score)
+        else:
+            df["complexite_score"] = 0.0
+
+        df["hallucinations_score"] = 1.0 - df["hallucination_flag"].astype(float)
+
+        df["global_score"] = (
+            df["exactitude_score"] * exactitude_weight
+            + df["pertinence_norm"] * pertinence_weight
+            + df["hallucinations_score"] * hallucinations_weight
+            + df["latence_score"] * latence_weight
+            + df["complexite_score"] * complexite_weight
         )
+
+        return df
+
+    def _compute_summary_scores(self, df):
+        keywords_mean = df["keywords_proportion"].mean() if "keywords_proportion" in df.columns else 0.0
+        similarity_mean = df["similarity_answer"].mean() if "similarity_answer" in df.columns else 0.0
+        exactitude_score = df["exactitude_score"].mean() if "exactitude_score" in df.columns else 0.0
+        pertinence_mean = df["manual_pertinence"].mean() if "manual_pertinence" in df.columns else 0.0
+        hallucinations_rate = df["hallucination_flag"].mean() if "hallucination_flag" in df.columns else 0.0
+        latence_mean = df[self.col_latency].mean() if self.col_latency in df.columns else 0.0
+        latence_score = df["latence_score"].mean() if "latence_score" in df.columns else 0.0
+        complexite_score = df["complexite_score"].mean() if "complexite_score" in df.columns else 0.0
+        global_score = df["global_score"].mean() if "global_score" in df.columns else 0.0
 
         summary = {
             "keywords_mean": keywords_mean,
@@ -207,6 +212,7 @@ class GoldenSetEvaluator:
         if self.col_latency not in df_eval.columns:
             df_eval[self.col_latency] = None
 
+        df_eval = self._compute_per_question_scores(df_eval)
         summary = self._compute_summary_scores(df_eval)
 
         return df_eval, summary

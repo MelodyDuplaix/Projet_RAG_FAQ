@@ -130,7 +130,6 @@ def benchmark_extractive_qa():
 
     df_with_answers = runner.run_on_dataframe(
         df_questions,
-        system_prompt=None,  # ou simplement ne pas passer l'arg dans l'appel
         delay_seconds=1,
     )
 
@@ -176,10 +175,5 @@ if __name__ == "__main__":
         summary_qa = benchmark_extractive_qa()
 
         print("\nÉvaluation terminée.")
-        print("Résumés détaillés :")
-        print("- data/llm-only-eval.csv")
-        print("- data/rag-eval.csv")
-        print("- data/extractive-qa-eval.csv")
-        print("- récap méthodes : data/methods_scores_summary.csv")
     except Exception as e:
         print(f"Erreur pendant l'exécution du script : {e}")

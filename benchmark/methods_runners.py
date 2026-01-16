@@ -6,7 +6,7 @@ from functools import lru_cache
 from dotenv import load_dotenv
 from huggingface_hub import InferenceClient
 import pandas as pd
-from sentence_transformers import SentenceTransformer, util  # pour RAG / QA extractif
+from sentence_transformers import SentenceTransformer, util 
 
 load_dotenv()
 
