@@ -10,9 +10,9 @@
 
 ## Résumé exécutif
 
-[2-3 phrases résumant les résultats et la recommandation finale]
+La méthode A (LLM seul) a montré des performances limitées avec une exactitude de 33.5% et un taux d'hallucinations élevé de 36.6%. La méthode C (Q&A extractif) a offert une latence très faible et aucune hallucinations, mais une exactitude moyenne de 42.7%. La méthode B (Recherche sémantique + LLM) s'est démarquée avec la meilleure performance globale, atteignant une exactitude de 61.9%, une pertinence élevée et un taux d'hallucinations minimal de 3.3%.
 
-**Recommandation** : Stratégie [A/B/C] - [Nom de la stratégie]
+**Recommandation** : Stratégie B - Recherche sémantique + LLM
 
 ---
 
@@ -102,10 +102,10 @@
 
 | Métrique | Valeur | Commentaire |
 |----------|--------|-------------|
-| Exactitude | 27.4% | |
-| Pertinence moyenne | 0.667/2 | |
-| Taux d'hallucinations | 46.7% | |
-| Latence moyenne | 7.193s | |
+| Exactitude | 33.5% | |
+| Pertinence moyenne | 1 | |
+| Taux d'hallucinations | 36.6% | |
+| Latence moyenne | 6.90s | |
 | Complexité | Faible | |
 
 **Observations qualitatives** :
@@ -120,51 +120,47 @@
 **Configuration** :
 - Modèle LLM : mistral-7B-Instruct-v0.2
 - Modèle embeddings : all-MiniLM-L6-v2
-- Top-K documents : [X]
+- Top-K documents : 5
 
 **Résultats** :
 
 | Métrique | Valeur | Commentaire |
 |----------|--------|-------------|
-| Exactitude | [X]% | |
-| Pertinence moyenne | [X]/2 | |
-| Taux d'hallucinations | [X]% | |
-| Latence moyenne | [X]s | |
-| Complexité | [Faible/Moyenne/Élevée] | |
+| Exactitude | 61.9% | |
+| Pertinence moyenne | 1.76 | |
+| Taux d'hallucinations | 3.3%% | |
+| Latence moyenne | 5.81s | |
+| Complexité | Moyenne | |
 
 **Observations qualitatives** :
-- [Observation 1]
-- [Observation 2]
-
-**Exemples de réponses** :
-
-| Question | Documents récupérés | Réponse | Évaluation |
-|----------|---------------------|---------|------------|
-| [Question 1] | [X docs] | [Réponse...] | ✅/⚠️/❌ |
-| [Question 2] | [X docs] | [Réponse...] | ✅/⚠️/❌ |
+- Pour des questions simples et très proche de la faq, les réponses sont très bonnes.
+- Parfois un peu de dérapage en anglais.
+- Pour des questions hors scope, généralement il répond correctement qu'il ne peut pas répondre, mais parfois il essaye de répondre malgré tout.
+- Pour des questions plus complexes, il a parfois du mal à synthétiser les informations issues des documents récupérés, et se pert dans sa réponse.
 
 ---
 
 ### 2.3 Stratégie C - Q&A extractif
 
 **Configuration** :
-- Modèle Q&A : [X]
-- Modèle embeddings : [X]
-- Top-K documents : [X]
+- Modèle Q&A : camembert-base-squadFR-fquad-piaf
+- Modèle embeddings : all-MiniLM-L6-v2
+- Top-K documents : 15
 
 **Résultats** :
 
 | Métrique | Valeur | Commentaire |
 |----------|--------|-------------|
-| Exactitude | [X]% | |
-| Pertinence moyenne | [X]/2 | |
-| Taux d'hallucinations | [X]% | |
-| Latence moyenne | [X]s | |
-| Complexité | [Faible/Moyenne/Élevée] | |
+| Exactitude | 42.7% | |
+| Pertinence moyenne | 1.06 | |
+| Taux d'hallucinations | 0% | |
+| Latence moyenne | 1.03s | |
+| Complexité | Moyenne | |
 
 **Observations qualitatives** :
-- [Observation 1]
-- [Observation 2]
+-  Pour des questions simples proches de la faq, les réponses sont correctes mais parfois incomplètes.
+-  Pour des questions plus complexes, le modèle a du mal à extraire une réponse complète
+-  Pour des questions hors scope, très bonne gestion, il répond toujours qu'il ne peut pas répondre.
 
 ---
 
@@ -174,30 +170,35 @@
 
 | Critère | Poids | Stratégie A | Stratégie B | Stratégie C |
 |---------|-------|-------------|-------------|-------------|
-| Exactitude | 30% | [X]% | [X]% | [X]% |
-| Pertinence | 20% | [X]/2 | [X]/2 | [X]/2 |
-| Hallucinations | 20% | [X]% | [X]% | [X]% |
-| Latence | 15% | [X]s | [X]s | [X]s |
-| Complexité | 15% | [1-3] | [1-3] | [1-3] |
-| **Score pondéré** | 100% | **[X]** | **[X]** | **[X]** |
+| Exactitude | 30% | 33.5% | 61.9% | 42.7% |
+| Pertinence | 20% | 1/2 | 1.76/2 | 1.06/2 |
+| Hallucinations | 20% | 36.6% | 3.3% | 0% |
+| Latence | 15% | 6.90s | 5.81s | 1.03s |
+| **Score pondéré** | 100% | **47.3%** | **70.3%** | **64.6%** |
 
 ### 3.2 Graphique comparatif
 
-[Insérer un graphique radar ou histogramme comparant les 3 stratégies]
+```mermaid
+xychart
+    title "Comparaison des méthodes"
+    x-axis ["Méthode A: LLM seul", "Méthode B RAG+LLM", "Méthode C RAG+Q&A extractif"]
+    y-axis "Score" 0 --> 100
+    bar [33.5, 61.9, 42.7]
+```
 
 ### 3.3 Analyse des forces et faiblesses
 
 **Stratégie A** :
-- ✅ Forces : [...]
-- ❌ Faiblesses : [...]
+- ✅ Forces : Simplicité d'implémentation
+- ❌ Faiblesses : Faible exactitude, taux élevé d'hallucinations, réponses hors sujet fréquentes.
 
 **Stratégie B** :
-- ✅ Forces : [...]
-- ❌ Faiblesses : [...]
+- ✅ Forces : Haute exactitude, faible taux d'hallucinations, pertinence élevée.
+- ❌ Faiblesses : complexité d'implémentation
 
 **Stratégie C** :
-- ✅ Forces : [...]
-- ❌ Faiblesses : [...]
+- ✅ Forces : Zéro hallucinations, latence très faible.
+- ❌ Faiblesses : Exactitude moyenne, pertinence limitée pour questions complexes.
 
 ---
 
@@ -205,23 +206,26 @@
 
 ### 4.1 Stratégie recommandée
 
-**Choix : Stratégie [X] - [Nom]**
+**Choix : Stratégie Méthode B - RAG+LLM**
 
 ### 4.2 Justification
 
 [Argumenter le choix en 3-5 points]
 
-1. [Argument 1]
-2. [Argument 2]
-3. [Argument 3]
+1. La méthode B offre le meilleur compromis entre exactitude, pertinence et taux d'hallucinations.
+2. Elle permet de conserver la richesse des réponses issues du LLM tout en utilisant les documents pour guider la réponse.
+3. Elle est plus robuste que la méthode A pour des questions complexes ou hors scope.
 
 ### 4.3 Limites de la recommandation
 
-[Identifier les cas où cette stratégie pourrait ne pas être optimale]
+La latence est plus élevée que la méthode C, ce qui peut être un inconvénient pour des applications en temps réel strict.
+Les réponses sont plus variables que la méthode C, ce qui peut poser problème pour des utilisateurs recherchant des réponses très précises.
+
 
 ### 4.4 Axes d'amélioration possibles
 
-[Suggérer des pistes d'optimisation pour la stratégie retenue]
+1. Optimiser l'indexation des documents pour améliorer la pertinence des résultats de recherche.
+2. Affiner les prompts utilisés pour le LLM afin de mieux guider la génération de réponses
 
 ---
 
@@ -229,14 +233,16 @@
 
 ### 5.1 Détail des résultats bruts
 
-[Lien vers le fichier CSV/JSON des résultats complets]
+[Lien vers le Détail des résultats LLM seul](data/llm-with-answers.csv)
+[Lien vers le Détail des résultats RAG](data/rag-with-answers.csv)
+[Lien vers le Détail des résultats Q&A](data/extractive-qa-with-answers.csv)
 
 ### 5.2 Code du benchmark
 
-[Lien vers le script de benchmark]
+[Lien vers le script de benchmark](benchmark/run_evaluation_script.py)
 
 ### 5.3 Grille d'évaluation complète
 
-[Lien vers la grille d'évaluation remplie]
+[Lien vers la grille d'évaluation remplie](data/methods_scores_summary.csv)
 
 ---

@@ -48,7 +48,7 @@ def benchmark_llm_only():
     df_eval, summary = evaluator.evaluate(df_with_answers)
 
     df_eval.to_csv(
-        "data/llm-only-eval.csv",
+        "data/llm-with-answers.csv",
         index=False,
         encoding="utf-8",
     )

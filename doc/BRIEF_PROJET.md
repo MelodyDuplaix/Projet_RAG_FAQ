@@ -47,8 +47,8 @@ Concevoir, développer et déployer une API d'assistance FAQ intégrant un LLM, 
 - **JALON 2** : Démonstration des 3 stratégies
 
 ### Phase 4 - Benchmark (J6)
-- [ ] Résultats d'évaluation compilés
-- [ ] Rapport de benchmark avec recommandation
+- [x] Résultats d'évaluation compilés
+- [x] Rapport de benchmark avec recommandation
 
 ### Phase 5 - API (J7)
 - [ ] API FastAPI fonctionnelle
