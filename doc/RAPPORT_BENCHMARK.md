@@ -102,14 +102,14 @@ La méthode A (LLM seul) a montré des performances limitées avec un score glob
 
 | Métrique | Valeur | Commentaire |
 |----------|--------|-------------|
-| Exactitude | 31.2% | |
+| Exactitude | 30.7% | |
 | Pertinence moyenne | 0.86 | |
-| Taux d'hallucinations | 33.3% | |
-| Latence moyenne | 7.45s | |
+| Taux d'hallucinations | 56.6% | |
+| Latence moyenne | 9.63s | |
 | Complexité | Faible | |
 
 **Observations qualitatives** :
--  Le modèle répond en se basant uniquement sur internet, ce qui entraîne des réponses hors sujet.
+-  Le modèle répond en se basant uniquement sur internet, ce qui entraîne des réponses hors sujet avec des informations inventées.
 -  Le modèle vire parfois sur de l'anglais.
 -  Il ne se base pas toujours en france.
 
@@ -126,10 +126,10 @@ La méthode A (LLM seul) a montré des performances limitées avec un score glob
 
 | Métrique | Valeur | Commentaire |
 |----------|--------|-------------|
-| Exactitude | 62.8% | |
-| Pertinence moyenne | 1.8 | |
-| Taux d'hallucinations | 3.3% | |
-| Latence moyenne | 5.63s | |
+| Exactitude | 61.7% | |
+| Pertinence moyenne | 1.77 | |
+| Taux d'hallucinations | 0% | |
+| Latence moyenne | 7.94s | |
 | Complexité | Moyenne | |
 
 **Observations qualitatives** :
@@ -152,9 +152,9 @@ La méthode A (LLM seul) a montré des performances limitées avec un score glob
 | Métrique | Valeur | Commentaire |
 |----------|--------|-------------|
 | Exactitude | 42.7% | |
-| Pertinence moyenne | 1.03 | |
+| Pertinence moyenne | 1.06 | |
 | Taux d'hallucinations | 0% | |
-| Latence moyenne | 0.82s | |
+| Latence moyenne | 0.67s | |
 | Complexité | Moyenne | |
 
 **Observations qualitatives** :
@@ -168,13 +168,13 @@ La méthode A (LLM seul) a montré des performances limitées avec un score glob
 
 ### 3.1 Tableau récapitulatif
 
-| Critère | Poids | Stratégie A | Stratégie B | Stratégie C |
-|---------|-------|-------------|-------------|-------------|
-| Exactitude | 30% | 31.2% | 62.8% | 42.7% |
-| Pertinence | 20% | 0.86/2 | 1.8/2 | 1.03/2 |
-| Hallucinations | 20% | 33.3% | 3.3% | 0% |
-| Latence | 15% | 7.45s | 5.63s | 0.82s |
-| **Score pondéré** | 100% | **38%** | **70%** | **63%** |
+| Critère | Poids | Stratégie A (LLM Only) | Stratégie B (RAG) | Stratégie C (Extractive QA) |
+|---------|-------|------------------------|-------------------|-----------------------------|
+| Exactitude | 30% | 30.8% | 61.7% | 42.7% |
+| Pertinence | 20% | 0.87/2 | 1.77/2 | 1.07/2 |
+| Hallucinations | 20% | 56.7% | 0% | 0% |
+| Latence | 15% | 9.63s | 7.95s | 0.67s |
+| **Score pondéré** | 100% | **40%** | **70%** | **65%** |
 
 ### 3.2 Graphique comparatif
 
@@ -182,8 +182,8 @@ La méthode A (LLM seul) a montré des performances limitées avec un score glob
 xychart
     title "Comparaison des méthodes"
     x-axis ["Méthode A: LLM seul", "Méthode B RAG+LLM", "Méthode C RAG+Q&A extractif"]
-    y-axis "Score" 0 --> 100
-    bar [38, 70, 63]
+    y-axis "Score global" 0 --> 100
+    bar [40, 70, 65]
 ```
 
 ### 3.3 Analyse des forces et faiblesses
