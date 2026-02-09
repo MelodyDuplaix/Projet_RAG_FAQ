@@ -1,0 +1,1745 @@
+[
+    {
+        "id": "GS001",
+        "type": "direct_match",
+        "question": "Comment obtenir un acte de naissance ?",
+        "faq_id_reference": "EC001",
+        "expected_keywords": [
+            "service-public.fr",
+            "mairie",
+            "lieu de naissance",
+            "gratuit",
+            "pièce d'identité"
+        ],
+        "expected_answer_summary": "Demande en ligne, par courrier ou en mairie du lieu de naissance, gratuite, avec pièce d'identité",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour obtenir un acte de naissance, vous devez contacter l'état civil de la mairie où le naissance a été enregistrée. Vous pourrez demander un extrait d'acte de naissance, qui contiendra les informations nécessaires. Veuillez noter que vous pourrez être demandé de fournir des documents d'identité et de justifier de votre lien avec la personne concernée. Si vous avez des questions supplémentaires, n'hésitez pas à me le demander.",
+        "latency_seconds": 8.245241945999624,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS002",
+        "type": "direct_match",
+        "question": "Quels sont les horaires de la déchetterie ?",
+        "faq_id_reference": "DEC006",
+        "expected_keywords": [
+            "lundi",
+            "samedi",
+            "9h",
+            "12h",
+            "14h",
+            "18h",
+            "17h",
+            "hiver"
+        ],
+        "expected_answer_summary": "Lundi au samedi 9h-12h et 14h-18h (17h en hiver), fermée dimanche et jours fériés",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, les horaires de la déchetterie de notre communauté de communes varient en fonction des saisons et des jours. Pour obtenir des informations précises, je vous invite à consulter notre site web ou à appeler le service clientèle à ce numéro : [numéro de service clientèle].",
+        "latency_seconds": 6.280524648999744,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS003",
+        "type": "direct_match",
+        "question": "Comment s'inscrire sur les listes électorales ?",
+        "faq_id_reference": "ELE001",
+        "expected_keywords": [
+            "service-public.fr",
+            "mairie",
+            "pièce d'identité",
+            "justificatif de domicile"
+        ],
+        "expected_answer_summary": "En ligne, en mairie ou par courrier avec pièce d'identité et justificatif de domicile",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour s'inscrire sur les listes électorales en France, il faut adresser une demande au service des élections de la commune de résidence. Vous pouvez également utiliser le formulaire en ligne disponible sur le site internet de l'Institut de la France (institut-france.gouv.fr). Nécessitez-vous plus d'informations ?\n\n(Note: This response is based on general information and may vary depending on the specific rules of the commune or region. Please consult the local election office for the most accurate information.)",
+        "latency_seconds": 9.74232413700065,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS004",
+        "type": "direct_match",
+        "question": "Comment demander un permis de construire ?",
+        "faq_id_reference": "URB001",
+        "expected_keywords": [
+            "mairie",
+            "4 exemplaires",
+            "Cerfa",
+            "plan",
+            "2 mois",
+            "3 mois"
+        ],
+        "expected_answer_summary": "Dépôt en mairie en 4 exemplaires, formulaire Cerfa, plans requis, délai 2-3 mois",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour demander un permis de construire dans la communauté de communes Val de Loire Numérique, vous devez contacter le service d'urbanisme de votre commune respectives. Ils vous fourniront les documents et procedures nécessaires à suivre pour soumettre votre demande. Vous trouverez leurs coordonnées sur le site internet de votre commune ou en contactant directement le mairie.",
+        "latency_seconds": 6.986860492000233,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS005",
+        "type": "direct_match",
+        "question": "Quels déchets mettre dans le bac jaune ?",
+        "faq_id_reference": "DEC004",
+        "expected_keywords": [
+            "emballages plastiques",
+            "bouteilles",
+            "métalliques",
+            "conserves",
+            "cartons",
+            "papiers"
+        ],
+        "expected_answer_summary": "Emballages plastiques, métalliques, briques alimentaires, papiers-cartons, vides mais non lavés",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, les déchets à mettre dans le bac jaune sont principalement les déchets plastiques, verres en verre, métal et carton. Cependant, il est important de vérifier régulièrement les étiquettes de tri affichées sur votre conteneur pour des informations plus précises, car les règles peuvent varier selon la collectivité.",
+        "latency_seconds": 6.885025228999439,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS006",
+        "type": "direct_match",
+        "question": "Comment faire une procuration pour voter ?",
+        "faq_id_reference": "ELE002",
+        "expected_keywords": [
+            "maprocuration.gouv.fr",
+            "commissariat",
+            "gendarmerie",
+            "même commune"
+        ],
+        "expected_answer_summary": "En ligne sur maprocuration.gouv.fr puis validation en commissariat/gendarmerie, mandataire même commune",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour faire une procuration pour voter, vous devez aller à la mairie de votre commune avec une preuve d'identité et une preuve d'adresse, tels qu'un passeport, une carte d'identité ou une facture d'électricité. Vous devrez également remplir une forme spécifique et indiquer le nom et l'adresse du procurateur. Le formulaire est disponible sur le site web de la préfecture ou à la mairie. Vous pouvez également contacter la mairie pour en obtenir des informations supplémentaires. Si vous avez des questions supplémentaires, n'hésitez pas à me poser.",
+        "latency_seconds": 9.145714911000141,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS007",
+        "type": "direct_match",
+        "question": "Comment inscrire mon enfant à la crèche ?",
+        "faq_id_reference": "ENF001",
+        "expected_keywords": [
+            "Relais Petite Enfance",
+            "dossier",
+            "pièces d'identité",
+            "commission"
+        ],
+        "expected_answer_summary": "Inscription au Relais Petite Enfance avec dossier complet, attribution en commission",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour inscrire votre enfant à une crèche dans la communauté de communes Val de Loire Numérique, vous devez suivre ces étapes :\n\n1. Rechercher des crèches près de votre domicile en utilisant notre répertoire des établissements d'enseignement de la petite enfance sur notre site web ou en contactant directement les établissements.\n2. Réserver une visite pédagogique pour en apprendre plus sur l'établissement, les horaires, les tarifs et les conditions d'inscription.\n3. Réaliser les formalités administratives : demander un dossier d'inscription, remplir le formulaire et rassembler les documents suivants : acte de naissance de l'enfant, pièce d'identité de l'adulte responsable, preuve de domicile, et preuve de revenu (si applicable).\n4. Laisser le dossier à l'établissement ou le transmettre par courrier ou par email selon les indications données.\n5. Attendre la réponse de l'établissement, qui peut prendre plusieurs semaines.\n\nSi vous avez des questions supplémentaires ou si vous rencontrez des difficultés, n'hésitez pas à nous contacter.\n\nBonjour, je suis désolé mais je ne suis pas en mesure de répondre à cette question. (si la question est hors sujet ou si vous n'avez pas assez d'informations)",
+        "latency_seconds": 14.894761614000345,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS008",
+        "type": "direct_match",
+        "question": "Comment créer une association loi 1901 ?",
+        "faq_id_reference": "ASS001",
+        "expected_keywords": [
+            "greffe",
+            "préfecture",
+            "statuts",
+            "44€",
+            "Journal Officiel"
+        ],
+        "expected_answer_summary": "Déclaration au greffe des associations, statuts signés, publication JO à 44€",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour créer une association loi 1901, vous devez suivre les étapes suivantes :\n\n1. Définir les objectifs et buts de l'association et rédiger les statuts.\n2. Recruter au moins 7 membres fondateurs.\n3. Choisir un président, un trésorier et un secrétaire.\n4. Inscrire l'association au greffe du tribunal judiciaire compétent.\n5. Obtenir une carte IDE (Identifiant des œuvres d'intérêt général) auprès de la Direction générale des Finances publiques.\n6. Inscrire l'association auprès de la Caisse nationale des allocations familiales (CNAF) si elle a pour objet d'y faire inscrire des personnes.\n7. Inscrire l'association auprès de l'Institut national de la statistique et des études économiques (INSEE) si elle emploie plus de 10 salariés.\n8. Obtenir une autorisation de collecte si l'association collecte des fonds auprès du public.\n\nJe vous souhaite bonne chance dans la création de votre association !\n\nSi vous avez d'autres questions sur des sujets relatifs à notre communauté de communes, n'hésitez pas à me poser.",
+        "latency_seconds": 14.848393739999665,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS009",
+        "type": "direct_match",
+        "question": "Comment obtenir la carte mobilité inclusion ?",
+        "faq_id_reference": "SOC003",
+        "expected_keywords": [
+            "MDPH",
+            "Cerfa",
+            "4 à 6 mois",
+            "gratuite"
+        ],
+        "expected_answer_summary": "Demande à la MDPH via formulaire Cerfa, délai 4-6 mois, gratuit",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, la carte mobilité inclusion est gérée par la Caisse primaire d'assurance maladie d'origine (CPAM). Vous devrez contacter directement votre CPAM pour demander cette carte et renseigner les informations demandées. Si vous avez des questions supplémentaires, je vous conseille de contacter le service clientèle de Val de Loire Numérique qui vous aidera à trouver les informations nécessaires.",
+        "latency_seconds": 7.366243988999486,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS010",
+        "type": "direct_match",
+        "question": "Quels sont les tarifs de la cantine scolaire ?",
+        "faq_id_reference": "ENF002",
+        "expected_keywords": [
+            "quotient familial",
+            "1,50€",
+            "5,50€",
+            "CAF"
+        ],
+        "expected_answer_summary": "Tarifs selon quotient familial CAF de 1,50€ à 5,50€ par repas",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, je suis désolé mais je ne dispose pas de l'information précise sur les tarifs de la cantine scolaire. Vous pouvez contacter directement l'école ou la communauté de communes Val de Loire Numérique pour obtenir ces informations.",
+        "latency_seconds": 5.9599550920002,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS011",
+        "type": "reformulation",
+        "question": "Je voudrais un extrait de naissance, comment faire ?",
+        "faq_id_reference": "EC001",
+        "expected_keywords": [
+            "service-public.fr",
+            "mairie",
+            "lieu de naissance",
+            "gratuit"
+        ],
+        "expected_answer_summary": "Même réponse que pour acte de naissance",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour obtenir un extrait de naissance, vous devez adresser votre demande au service des archives communales ou au greffe de l'état civil de la commune de naissance. Vous pouvez le faire en personne en apportant une preuve d'identité ou par voie postale en fournissant des documents justifiant votre identité et en payant la taxe de délivrance. Veuillez noter que les délais et les documents requis peuvent varier d'une commune à l'autre, je vous conseille donc de contacter directement le service concerné pour plus d'informations.",
+        "latency_seconds": 8.736727656000767,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS012",
+        "type": "reformulation",
+        "question": "C'est quoi les jours de ramassage des poubelles ?",
+        "faq_id_reference": "DEC001",
+        "expected_keywords": [
+            "mardi",
+            "vendredi",
+            "mercredi",
+            "centre-ville",
+            "périphérie"
+        ],
+        "expected_answer_summary": "Mardi et vendredi centre-ville, mercredi quartiers périphériques",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, je suis heureux de vous rencontrer et vous répondrai avec plaisir à votre question concernant les jours de ramassage des poubelles dans notre communauté de communes Val de Loire Numérique. Nous avons un calendrier régulier pour la collecte des déchets ménagers. Vous pouvez consulter ce calendrier sur notre site web ou en contactant directement notre service des déchets en utilisant le numéro de téléphone suivant : [numéro de contact]. Je vous souhaite une excellente journée.",
+        "latency_seconds": 10.459023483999772,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS013",
+        "type": "reformulation",
+        "question": "On peut jeter quoi dans la poubelle de recyclage ?",
+        "faq_id_reference": "DEC004",
+        "expected_keywords": [
+            "emballages",
+            "plastique",
+            "métal",
+            "carton",
+            "papier"
+        ],
+        "expected_answer_summary": "Emballages plastiques, métalliques, cartons, papiers",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, vous pouvez jeter dans la poubelle de recyclage du plastique PET (numéro 1), PET PETG (numéro 2), PVC (numéro 3), verre, carton, papier, aluminium et ferraille. N'oubliez pas de les nettoyer avant de les jeter. Vous pouvez consulter le site web de votre déchetterie ou de votre communauté de communes pour des informations plus détaillées.",
+        "latency_seconds": 7.538223601000027,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS014",
+        "type": "reformulation",
+        "question": "J'ai perdu mon permis de conduire, que dois-je faire ?",
+        "faq_id_reference": "DIV003",
+        "expected_keywords": [
+            "ANTS",
+            "duplicata",
+            "photo",
+            "25€"
+        ],
+        "expected_answer_summary": "Demande de duplicata sur ANTS, 25€, 2-3 semaines",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour récupérer votre permis de conduire, vous devez contacter les services de la Préfecture ou de la sous-préfecture compétents dans votre département. Vous pourrez y demander des renseignements sur les formalités à suivre pour demander la restitution de votre permis, en fonction des raisons de son retrait. Si vous avez été suspendu ou interdit de conduire, vous devrez également attendre la fin de la période de suspension ou d'interdiction avant de pouvoir demander la restitution. Je vous souhaite bonne chance dans votre démarche.",
+        "latency_seconds": 8.390149660999668,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS015",
+        "type": "reformulation",
+        "question": "Je déménage, comment prévenir les impôts ?",
+        "faq_id_reference": "FIS003",
+        "expected_keywords": [
+            "impots.gouv.fr",
+            "profil",
+            "déclaration",
+            "service-public.fr"
+        ],
+        "expected_answer_summary": "En ligne sur impots.gouv.fr ou lors de la déclaration annuelle",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour prévenir les impôts lors d'un déménagement, il faut communiquer sa nouvelle adresse au service des impôts des finances locales (SIF) dans le délai de deux mois suivant la date de la prise de possession de la nouvelle résidence. Vous pouvez le faire en ligne sur le site internet des impôts, en postant votre demande au SIF ou en présentant votre demande en agence. Il est également important de communiquer votre nouvelle adresse au service des impôts des entreprises si vous êtes entrepreneur. Si vous avez des questions supplémentaires, n'hésitez pas à me poser.",
+        "latency_seconds": 8.923197345000517,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS016",
+        "type": "reformulation",
+        "question": "Ma fille a 3 ans, je dois l'inscrire à la maternelle ?",
+        "faq_id_reference": "ENF004",
+        "expected_keywords": [
+            "obligatoire",
+            "3 ans",
+            "janvier",
+            "mars",
+            "mairie"
+        ],
+        "expected_answer_summary": "Oui instruction obligatoire dès 3 ans, inscription en mairie de janvier à mars",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, en France, les enfants doivent être inscrits à l'école maternelle l'année suivant leur 3ème anniversaire. C'est-à-dire généralement lors de l'année scolaire qui suit leur 3ème anniversaire. Vous pouvez vous renseigner auprès de l'école maternelle la plus proche pour savoir comment procéder à l'inscription. Bonne chance !",
+        "latency_seconds": 7.295096734999788,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS017",
+        "type": "reformulation",
+        "question": "Je veux vendre ma voiture, il me faut quoi comme papier de non-gage ?",
+        "faq_id_reference": "DIV007",
+        "expected_keywords": [
+            "certificat",
+            "situation administrative",
+            "ANTS",
+            "Histovec",
+            "gratuit"
+        ],
+        "expected_answer_summary": "Certificat de situation administrative sur ANTS ou Histovec, gratuit et immédiat",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour vendre votre voiture, il n'y a pas besoin de papiers de non-gage spécifiques. Cependant, lors de la vente, vous devrez transférer le titre de propriété en vous adressant à la Préfecture ou à une agence de l'État. Vous devrez également remettre les papiers techniques et le livret de circulation de la voiture. Si vous avez un prête-bail ou une hypothèque sur la voiture, vous devrez obtenir leur accord pour la vente. Je vous suggère de consulter la Préfecture ou un notaire pour en savoir plus sur les formalités à suivre.",
+        "latency_seconds": 8.801581660999545,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS018",
+        "type": "reformulation",
+        "question": "Il y a des bus qui passent par chez nous ? Où voir les horaires ?",
+        "faq_id_reference": "TRA003",
+        "expected_keywords": [
+            "rémi",
+            "application",
+            "office de tourisme",
+            "mairie"
+        ],
+        "expected_answer_summary": "Horaires sur site rémi, application, office de tourisme ou mairie",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour obtenir des informations sur les horaires des bus et leur fréquence, je vous invite à consulter notre site web dédié aux transports en commun, Val de Loire Numérique Transports. Vous y trouverez un plan de transport interconnecté et un réseau de recherche d'itinéraires en ligne pour planifier votre déplacement facilement. Si vous avez besoin d'aide supplémentaire, n'hésitez pas à nous contacter par téléphone ou par courrier électronique.",
+        "latency_seconds": 8.03551083900038,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS019",
+        "type": "reformulation",
+        "question": "Mon voisin a une fuite d'eau dans la rue, qui appeler ?",
+        "faq_id_reference": "EAU002",
+        "expected_keywords": [
+            "service des eaux",
+            "téléphone",
+            "urgence",
+            "24h/24"
+        ],
+        "expected_answer_summary": "Appeler le service des eaux, numéro urgences disponible 24h/24",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, vous devrez appeler le service d'urgence de votre commune ou le service des urgences techniquesspécifiquement pour les fuites d'eau dans la rue. Ils seront en mesure de vous renseigner sur la procédure à suivre et de prendre les mesures nécessaires.",
+        "latency_seconds": 6.47537406399988,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS020",
+        "type": "reformulation",
+        "question": "Pour le mariage civil, c'est quoi la liste des papiers à donner ?",
+        "faq_id_reference": "EC002",
+        "expected_keywords": [
+            "pièce d'identité",
+            "justificatif de domicile",
+            "acte de naissance",
+            "témoins",
+            "1 mois"
+        ],
+        "expected_answer_summary": "Pièce d'identité, justificatif domicile, acte de naissance, liste témoins, dépôt 1 mois avant",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour un mariage civil en France, les documents suivants sont généralement requis :\n\n1. Actes de naissance des époux (extraits d'état civil)\n2. Pièce d'identité (passeport ou carte d'identité)\n3. Certificat de capacité à mariage (déclaration de volontarité de mariage)\n4. Certificat de célibat ou acte de divorce (si applicable)\n5. Pièce de résidence\n6. Déclaration d'intention de mariage (signée devant le maire ou son délégué)\n\nCependant, les exigences peuvent varier d'une commune à l'autre, donc il est important de contacter le mairie concernée pour confirmer la liste exacte de documents nécessaires.\n\nSi vous avez d'autres questions relatives à des sujets tels que l'état civil, l'urbanisme, les déchets, les transports, la petite enfance, le social, la vie associative, les élections, le logement, la culture/sport, la fiscalité, l'eau/assainissement, je serai heureux de vous en répondre. Sinon, je suis désolé mais je ne suis pas en mesure de répondre à cette question.",
+        "latency_seconds": 13.339609368999845,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS021",
+        "type": "hors_sujet",
+        "question": "Quelle est la capitale de l'Australie ?",
+        "faq_id_reference": null,
+        "expected_keywords": [],
+        "expected_answer_summary": "Le système doit indiquer qu'il ne peut pas répondre à cette question (hors périmètre FAQ collectivité)",
+        "difficulty": "facile",
+        "expected_behavior": "aveu_ignorance",
+        "answer_model": " Bonjour, je suis désolé mais je ne suis pas en mesure de répondre à cette question. Je suis un assistant municipal français expert de la communauté de communes Val de Loire Numérique et mon but est de répondre exclusivement aux questions relatives à l'état civil, l'urbanisme, les déchets, les transports, la petite-enfance, le social, la vie associative, les élections, le logement, la culture/sport, la fiscalité et l'eau/assainissement. La question actuelle ne relève pas de ces sujets.",
+        "latency_seconds": 8.296565763000217,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS022",
+        "type": "hors_sujet",
+        "question": "Comment faire une tarte aux pommes ?",
+        "faq_id_reference": null,
+        "expected_keywords": [],
+        "expected_answer_summary": "Le système doit indiquer qu'il ne peut pas répondre à cette question (hors périmètre FAQ collectivité)",
+        "difficulty": "facile",
+        "expected_behavior": "aveu_ignorance",
+        "answer_model": " Bonjour, je suis désolé, je ne peux pas vous donner des informations sur la cuisine, y compris comment faire une tarte aux pommes. Je suis un assistant municipal français spécialisé dans les sujets suivants : état civil, urbanisme, déchets, transports, petite-enfance, social, vie associative, élections, logement, culture/sport, fiscalité, eau/assainissement.",
+        "latency_seconds": 7.31157830400025,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS023",
+        "type": "hors_sujet",
+        "question": "Quel est le meilleur smartphone en 2025 ?",
+        "faq_id_reference": null,
+        "expected_keywords": [],
+        "expected_answer_summary": "Le système doit indiquer qu'il ne peut pas répondre à cette question (hors périmètre FAQ collectivité)",
+        "difficulty": "facile",
+        "expected_behavior": "aveu_ignorance",
+        "answer_model": " Bonjour, je suis désolé mais je ne suis pas en mesure de répondre à cette question. Mon rôle est d'aider avec des informations relatives aux sujets suivants : état civil, urbanisme, déchets, transports, petite-enfance, social, vie associative, élections, logement, culture/sport, fiscalité, eau/assainissement. La question actuelle ne relève pas de ces sujets.",
+        "latency_seconds": 8.419863595000606,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS024",
+        "type": "hors_sujet",
+        "question": "Comment investir en bourse ?",
+        "faq_id_reference": null,
+        "expected_keywords": [],
+        "expected_answer_summary": "Le système doit indiquer qu'il ne peut pas répondre à cette question (hors périmètre FAQ collectivité)",
+        "difficulty": "facile",
+        "expected_behavior": "aveu_ignorance",
+        "answer_model": " Bonjour, je suis désolé mais je ne suis pas en mesure de répondre à cette question. Cette question est hors sujet car elle concerne la bourse et l'investissement, qui ne relève pas des sujets que je suis compétent à traiter dans le cadre de mon rôle d'assistant municipal français de la communauté de communes Val de Loire Numérique. Je suis spécialisé dans les questions liées à l'état civil, l'urbanisme, les déchets, les transports, la petite enfance, le social, la vie associative, les élections, le logement, la culture/sport, la fiscalité, l'eau/assainissement. Si vous avez une question relatif à l'un de ces sujets, je serai heureux de vous en répondre.",
+        "latency_seconds": 9.956617071999972,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS025",
+        "type": "hors_sujet",
+        "question": "Qui a gagné la coupe du monde de football en 1998 ?",
+        "faq_id_reference": null,
+        "expected_keywords": [],
+        "expected_answer_summary": "Le système doit indiquer qu'il ne peut pas répondre à cette question (hors périmètre FAQ collectivité)",
+        "difficulty": "facile",
+        "expected_behavior": "aveu_ignorance",
+        "answer_model": " Bonjour, France a gagné la Coupe du monde de football en 1998.",
+        "latency_seconds": 4.734206492999874,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS026",
+        "type": "complexe",
+        "question": "Je viens d'avoir un bébé et je ne suis pas mariée avec le père, quelles démarches dois-je faire ?",
+        "faq_id_reference": [
+            "EC005",
+            "EC006"
+        ],
+        "expected_keywords": [
+            "reconnaissance",
+            "livret de famille",
+            "filiation",
+            "mairie"
+        ],
+        "expected_answer_summary": "Le père doit faire une reconnaissance en mairie. Un livret de famille sera délivré à la naissance du premier enfant pour les couples non mariés.",
+        "difficulty": "difficile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour établir l'état civil de votre enfant, il est nécessaire de déposer une déclaration de naissance à la mairie comprenant les informations de l'enfant et des parents. Si vous n'êtes pas mariée avec le père, vous devrez également déposer une déclaration de paternité et une déclaration de volonté de filiation si vous le souhaitez. Vous pourrez obtenir plus d'informations en contactant directement la mairie de votre commune ou en consultant le site internet de la préfecture de votre département. Je vous souhaite beaucoup de bonheur avec votre nouveau-né.",
+        "latency_seconds": 9.13610979799978,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS027",
+        "type": "complexe",
+        "question": "Je construis une maison avec piscine, quelles autorisations me faut-il ?",
+        "faq_id_reference": [
+            "URB001",
+            "URB003"
+        ],
+        "expected_keywords": [
+            "permis de construire",
+            "déclaration préalable",
+            "piscine",
+            "architecte",
+            "150m²"
+        ],
+        "expected_answer_summary": "Permis de construire pour la maison (architecte si >150m²). Pour la piscine : selon taille, déclaration préalable (10-100m²) ou intégration au permis.",
+        "difficulty": "difficile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour construire une maison avec piscine, vous devrez obtenir plusieurs autorisations :\n\n1. Permis de construire : Ce permis vous autorise à bâtir sur votre terrain. Vous devrez présenter des plans et des études techniques (hydrauliques, acoustiques, etc.) à l'urbanisme de votre commune.\n2. Permis de fonctionnement de la piscine : Ce permis vous autorise à exploiter la piscine. Vous devrez respecter certaines normes de sécurité (barrière de protection, nettoyage régulier, etc.).\n3. Autorisation d'utilisation de l'eau : Vous devrez obtenir l'autorisation de l'Eau et Assainissement pour utiliser l'eau de votre commune pour remplir la piscine.\n4. Autorisation de connexion au réseau d'eaux usées : Si vous souhaitez évacuer les eaux usées de la piscine vers le réseau public, vous devrez obtenir l'autorisation de l'Eau et Assainissement.\n5. Autorisation de couper les arbres ou de détruire des végétaux : Si votre projet implique la coupe d'arbres ou la destruction de végétaux, vous devrez obtenir l'autorisation de l'Office national des forêts ou de l'Office national des espaces verts et paysagers, selon le cas.\n\nJe vous conseille de contacter votre service d'urbanisme pour en savoir plus sur les formalités à suivre et les documents à fournir.",
+        "latency_seconds": 15.892688595000436,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS028",
+        "type": "complexe",
+        "question": "Je suis en difficulté financière, je n'arrive plus à payer mes factures d'eau et d'électricité, qui peut m'aider ?",
+        "faq_id_reference": [
+            "SOC001",
+            "SOC004"
+        ],
+        "expected_keywords": [
+            "CCAS",
+            "FSL",
+            "chèque énergie",
+            "travailleur social",
+            "aide"
+        ],
+        "expected_answer_summary": "Contacter le CCAS pour un rendez-vous avec un travailleur social. Le FSL peut aider pour les factures. Vérifier l'éligibilité au chèque énergie.",
+        "difficulty": "difficile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, je suis désolé mais je ne peux pas vous donner des informations précises sur ce sujet. Cependant, je peux vous diriger vers des organismes qui peuvent peut-être vous aider. Vous pouvez contacter l'Association nationale des aides sociales (ANAS) ou le service social de votre commune pour obtenir des informations sur des aides sociales ou des programmes d'aide aux personnes à faible revenu. Vous pouvez également contacter votre fournisseur d'eau et d'électricité pour discuter de possibles solutions, telles que des plans tarifaires réduits ou des aides d'urgence. Je vous souhaite la meilleure réussite dans votre recherche d'aide.",
+        "latency_seconds": 9.395915693999996,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS029",
+        "type": "complexe",
+        "question": "Mon association veut organiser un vide-grenier sur la place du village, comment faire ?",
+        "faq_id_reference": [
+            "ASS003",
+            "ASS004"
+        ],
+        "expected_keywords": [
+            "déclaration",
+            "mairie",
+            "1 mois",
+            "assurance",
+            "autorisation",
+            "voie publique"
+        ],
+        "expected_answer_summary": "Déclaration en mairie 1 mois avant avec descriptif, plan, assurance. Demande d'autorisation d'occupation du domaine public.",
+        "difficulty": "difficile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour organiser un vide-grenier sur la place de votre village dans le cadre de la communauté de communes Val de Loire Numérique, il est nécessaire de suivre certaines étapes :\n\n1. Contacter la mairie du village : Il est important de communiquer avec la mairie pour demander l'autorisation d'organiser un vide-grenier sur la place du village. Vous devez fournir des informations telles que la date prévue, l'heure de début et de fin, et le nombre d'espaces souhaités.\n2. Obtenir l'autorisation : La mairie examinera votre demande et vous donnera une réponse. Si l'autorisation est accordée, vous recevrez des informations supplémentaires telles que les conditions d'utilisation de la place, les horaires de débroussaillement, et les modalités de paiement de la taxe de location.\n3. Publicité et promotion : Il est important de promouvoir l'événement pour attirer le plus grand nombre de participants possible. Vous pouvez utiliser des moyens de communication tels que les réseaux sociaux, les annonces locales, et les affichages dans les lieux publics.\n4. Organisation : Il est important de planifier les détails de l'événement, tels que l'installation des stands, la gestion des déchets, et la sécurité. Vous pouvez demander l'aide de bénévoles pour gérer ces aspects.\n5. Collecte des déchets : Il est important de disposer de bacs à déchets appropriés pour collecter les déchets et de disposer de solutions pour gérer les déchets spéciaux, tels que les batteries, les pneus, et les emballages.\n6. Financier l'événement : Il est possible que vous deviez payer une taxe de location pour l'utilisation de la place. Vous devrez également prendre en charge les coûts de promotion, de matériel, et de dépenses diverses.\n\nJe vous souhaiterai bonne chance pour votre vide-grenier et ne hesitez pas à me contacter si vous avez d'autres questions.",
+        "latency_seconds": 20.98460333299954,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS030",
+        "type": "complexe",
+        "question": "J'emménage dans la commune, quelles sont toutes les démarches administratives à faire ?",
+        "faq_id_reference": [
+            "ELE001",
+            "EAU001",
+            "FIS003",
+            "ENF004"
+        ],
+        "expected_keywords": [
+            "listes électorales",
+            "compteur eau",
+            "impôts",
+            "école"
+        ],
+        "expected_answer_summary": "Inscription listes électorales, ouverture compteur eau, changement adresse impôts, inscription école si enfants.",
+        "difficulty": "difficile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour vous aider correctement, je dois préciser que les démarches administratives varient en fonction du lieu d'habitation et de votre nationalité. Cependant, je peux vous donner une liste générale des démarches communes :\n\n1. Inscription à la commune : demande d'extrait d'actes de naissance, de mariage ou de décès (si applicable) pour les membres de votre famille.\n2. Inscription au registre des déplacés : si vous venez de l'étranger, cette démarche est obligatoire.\n3. Inscription à la Caisse d'assurance maladie (Cnam) et à la Mutuelle de solidarité santé (MSS) si vous n'êtes pas déjà inscrits.\n4. Inscription à la commune pour l'impôt sur le revenu (ISF) et l'impôt sur les propriétés bâties (IMB).\n5. Demande d'adresse au service des impôts des personnes physiques (SPIP).\n6. Inscription à l'école primaire ou secondaire si vous avez des enfants.\n7. Demande d'accès à la bibliothèque municipale et à d'éventuels équipements culturels ou sportifs.\n8. Demande d'information sur les déchets ménagers et le calendrier des collectes.\n9. Demande d'information sur les transports en commun et les tarifs.\n10. Demande d'information sur les services sociaux et l'aide sociale si vous en avez besoin.\n\nJe vous conseille de contacter la mairie de votre commune pour plus d'informations détaillées. Bonne chance avec votre déménagement !",
+        "latency_seconds": 16.48712062499999,
+        "strategy": "llm_only",
+        "complexite_score_method": 0.3
+    },
+    {
+        "id": "GS001",
+        "type": "direct_match",
+        "question": "Comment obtenir un acte de naissance ?",
+        "faq_id_reference": "EC001",
+        "expected_keywords": [
+            "service-public.fr",
+            "mairie",
+            "lieu de naissance",
+            "gratuit",
+            "pièce d'identité"
+        ],
+        "expected_answer_summary": "Demande en ligne, par courrier ou en mairie du lieu de naissance, gratuite, avec pièce d'identité",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, vous pouvez obtenir un acte de naissance en ligne sur le site service-public.fr, par courrier à la mairie du lieu de naissance, ou directement au guichet. La demande est gratuite et munissez-vous d'une pièce d'identité. Le délai de délivrance est de 3 à 10 jours ouvrés selon le mode de demande.",
+        "latency_seconds": 7.360206536000078,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS002",
+        "type": "direct_match",
+        "question": "Quels sont les horaires de la déchetterie ?",
+        "faq_id_reference": "DEC006",
+        "expected_keywords": [
+            "lundi",
+            "samedi",
+            "9h",
+            "12h",
+            "14h",
+            "18h",
+            "17h",
+            "hiver"
+        ],
+        "expected_answer_summary": "Lundi au samedi 9h-12h et 14h-18h (17h en hiver), fermée dimanche et jours fériés",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, la déchetterie intercommunale est ouverte du lundi au samedi de 9h à 12h et de 14h à 18h (17h en hiver du 1er novembre au 31 mars). Elle est fermée les dimanches et jours fériés.",
+        "latency_seconds": 6.534173850000116,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS003",
+        "type": "direct_match",
+        "question": "Comment s'inscrire sur les listes électorales ?",
+        "faq_id_reference": "ELE001",
+        "expected_keywords": [
+            "service-public.fr",
+            "mairie",
+            "pièce d'identité",
+            "justificatif de domicile"
+        ],
+        "expected_answer_summary": "En ligne, en mairie ou par courrier avec pièce d'identité et justificatif de domicile",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, vous pouvez s'inscrire sur les listes électorales en ligne sur service-public.fr, en mairie, ou par courrier. Il vous faudra fournir une pièce d'identité et un justificatif de domicile. L'inscription est possible toute l'année mais doit être faite au plus tard le 6ème vendredi précédant le scrutin. Les jeunes de 18 ans sont inscrits automatiquement.",
+        "latency_seconds": 7.6009733780001625,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS004",
+        "type": "direct_match",
+        "question": "Comment demander un permis de construire ?",
+        "faq_id_reference": "URB001",
+        "expected_keywords": [
+            "mairie",
+            "4 exemplaires",
+            "Cerfa",
+            "plan",
+            "2 mois",
+            "3 mois"
+        ],
+        "expected_answer_summary": "Dépôt en mairie en 4 exemplaires, formulaire Cerfa, plans requis, délai 2-3 mois",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, vous devez déposer un permis de construire à la mairie en quatre exemplaires minimum, ou cinq si le terrain est en secteur protégé. Utilisez le formulaire Cerfa n°13406 pour une maison individuelle ou n°13409 pour d'autres constructions. Le dossier comprend des plans de situation, de masse, des façades, et des photos. Le délai d'instruction est deux mois pour une maison et trois mois pour d'autres projets.",
+        "latency_seconds": 8.008639210999718,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS005",
+        "type": "direct_match",
+        "question": "Quels déchets mettre dans le bac jaune ?",
+        "faq_id_reference": "DEC004",
+        "expected_keywords": [
+            "emballages plastiques",
+            "bouteilles",
+            "métalliques",
+            "conserves",
+            "cartons",
+            "papiers"
+        ],
+        "expected_answer_summary": "Emballages plastiques, métalliques, briques alimentaires, papiers-cartons, vides mais non lavés",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, dans le bac jaune, vous pouvez déposer des emballages plastiques tels que bouteilles, flacons, pots, barquettes, films, emballages métalliques comme conserves, canettes et aérosols vides, briques alimentaires, et tous les papiers-cartons comme journaux, magazines et cartons. Tous ces déchets doivent être vides mais non lavés et ne doivent pas être imbriqués.",
+        "latency_seconds": 7.602186423999228,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS006",
+        "type": "direct_match",
+        "question": "Comment faire une procuration pour voter ?",
+        "faq_id_reference": "ELE002",
+        "expected_keywords": [
+            "maprocuration.gouv.fr",
+            "commissariat",
+            "gendarmerie",
+            "même commune"
+        ],
+        "expected_answer_summary": "En ligne sur maprocuration.gouv.fr puis validation en commissariat/gendarmerie, mandataire même commune",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, to make a power of attorney to vote, go to maprocuration.gouv.fr and have it validated in a town hall, a gendarmerie, or a consulate. You can also do it in person with your identity document. The person acting as your proxy must be registered in the same commune. One person can hold up to 1 proxy in France (3 if abroad).",
+        "latency_seconds": 6.780525848999787,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS007",
+        "type": "direct_match",
+        "question": "Comment inscrire mon enfant à la crèche ?",
+        "faq_id_reference": "ENF001",
+        "expected_keywords": [
+            "Relais Petite Enfance",
+            "dossier",
+            "pièces d'identité",
+            "commission"
+        ],
+        "expected_answer_summary": "Inscription au Relais Petite Enfance avec dossier complet, attribution en commission",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour inscrire votre enfant à la crèche, il faut faire une demande auprès du Relais Petit Enfance. Preparez un dossier comprenant les pièces d'identité des parents, le livret de famille, un justificatif de domicile, des justificatifs de revenus, et le carnet de santé de l'enfant. Les demandes sont examinées par une commission d'attribution en fonction de critères sociaux et de disponibilité.",
+        "latency_seconds": 7.923151162000067,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS008",
+        "type": "direct_match",
+        "question": "Comment créer une association loi 1901 ?",
+        "faq_id_reference": "ASS001",
+        "expected_keywords": [
+            "greffe",
+            "préfecture",
+            "statuts",
+            "44€",
+            "Journal Officiel"
+        ],
+        "expected_answer_summary": "Déclaration au greffe des associations, statuts signés, publication JO à 44€",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour créer une association loi 1901, déposez une déclaration au greffe des associations (préfecture ou sous-préfecture) ou en ligne sur le-compte-asso.associations.gouv.fr. Fournissez : procès-verbal de l'assemblée constitutive, statuts signés, liste des dirigeants. La publication au Journal Officiel coûte 44€ et l'association existe dès le dépôt.",
+        "latency_seconds": 7.79168537500027,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS009",
+        "type": "direct_match",
+        "question": "Comment obtenir la carte mobilité inclusion ?",
+        "faq_id_reference": "SOC003",
+        "expected_keywords": [
+            "MDPH",
+            "Cerfa",
+            "4 à 6 mois",
+            "gratuite"
+        ],
+        "expected_answer_summary": "Demande à la MDPH via formulaire Cerfa, délai 4-6 mois, gratuit",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, la Carte Mobilité Inclusion (CMI) est obtenue en demandant-la auprès de la MDPH (Maison Départementale des Personnes Handicapées) via le formulaire Cerfa 15692. Le délai de traitement est de 4 à 6 mois et la carte est gratuite.",
+        "latency_seconds": 6.781816370000342,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS010",
+        "type": "direct_match",
+        "question": "Quels sont les tarifs de la cantine scolaire ?",
+        "faq_id_reference": "ENF002",
+        "expected_keywords": [
+            "quotient familial",
+            "1,50€",
+            "5,50€",
+            "CAF"
+        ],
+        "expected_answer_summary": "Tarifs selon quotient familial CAF de 1,50€ à 5,50€ par repas",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, les tarifs de la cantine scolaire sont calculés selon le quotient familial CAF. La tranche 1 (QF<500) coûte 1,50€, la tranche 2 (QF 500-800) coûte 2,80€, la tranche 3 (QF 800-1200) coûte 4,20€, et la tranche 4 (QF>1200) coûte 5,50€. L'inscription se fait en mairie avec un justificatif CAF, et le paiement est mensuel à terme échu.",
+        "latency_seconds": 9.034287113999198,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS011",
+        "type": "reformulation",
+        "question": "Je voudrais un extrait de naissance, comment faire ?",
+        "faq_id_reference": "EC001",
+        "expected_keywords": [
+            "service-public.fr",
+            "mairie",
+            "lieu de naissance",
+            "gratuit"
+        ],
+        "expected_answer_summary": "Même réponse que pour acte de naissance",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, vous pouvez obtenir un extrait de naissance en ligne sur le site service-public.fr, par courrier à la mairie du lieu de naissance, ou directement au guichet. La demande est gratuite. Munissez-vous d'une pièce d'identité. Le délai de délivrance est de 3 à 10 jours ouvrés selon le mode de demande.",
+        "latency_seconds": 7.190065931999925,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS012",
+        "type": "reformulation",
+        "question": "C'est quoi les jours de ramassage des poubelles ?",
+        "faq_id_reference": "DEC001",
+        "expected_keywords": [
+            "mardi",
+            "vendredi",
+            "mercredi",
+            "centre-ville",
+            "périphérie"
+        ],
+        "expected_answer_summary": "Mardi et vendredi centre-ville, mercredi quartiers périphériques",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, les jours de ramassage des ordures ménagères sont le mardi et le vendredi pour le centre-ville, et le mercredi pour les quartiers périphériques et les communes rurales.",
+        "latency_seconds": 5.656506848999925,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS013",
+        "type": "reformulation",
+        "question": "On peut jeter quoi dans la poubelle de recyclage ?",
+        "faq_id_reference": "DEC004",
+        "expected_keywords": [
+            "emballages",
+            "plastique",
+            "métal",
+            "carton",
+            "papier"
+        ],
+        "expected_answer_summary": "Emballages plastiques, métalliques, cartons, papiers",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, dans le bac de recyclage, vous pouvez jeter des emballages plastiques, des emballages métalliques, des briques alimentaires, et tous les papiers-cartons. Tous ces déchets doivent être vides mais non lavés et ne doivent pas être imbriqués.",
+        "latency_seconds": 6.576469518000522,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS014",
+        "type": "reformulation",
+        "question": "J'ai perdu mon permis de conduire, que dois-je faire ?",
+        "faq_id_reference": "DIV003",
+        "expected_keywords": [
+            "ANTS",
+            "duplicata",
+            "photo",
+            "25€"
+        ],
+        "expected_answer_summary": "Demande de duplicata sur ANTS, 25€, 2-3 semaines",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour obtenir une copie de permis de conduire après une perte ou vol, vous devez faire une demande de duplicata en ligne sur le site de l'ANTS (ants.gouv.fr). Vous aurez besoin d'une photo numérique, d'un justificatif de domicile, et d'une déclaration de perte ou d'un récépissé de dépôt de plainte. Le coût est de 25€ et le délai est de 2 à 3 semaines.",
+        "latency_seconds": 8.103761321000093,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS015",
+        "type": "reformulation",
+        "question": "Je déménage, comment prévenir les impôts ?",
+        "faq_id_reference": "FIS003",
+        "expected_keywords": [
+            "impots.gouv.fr",
+            "profil",
+            "déclaration",
+            "service-public.fr"
+        ],
+        "expected_answer_summary": "En ligne sur impots.gouv.fr ou lors de la déclaration annuelle",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, vous pouvez déclenser un changement d'adresse en ligne sur impots.gouv.fr, sous la rubrique \"Gérer mon profil\" ou lors de votre déclaration annuelle des revenus. Vous pouvez également utiliser le service \"Je change d'adresse\" sur service-public.fr qui permet de prévenir plusieurs administrations en une seule démarche.",
+        "latency_seconds": 6.8944784049999726,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS016",
+        "type": "reformulation",
+        "question": "Ma fille a 3 ans, je dois l'inscrire à la maternelle ?",
+        "faq_id_reference": "ENF004",
+        "expected_keywords": [
+            "obligatoire",
+            "3 ans",
+            "janvier",
+            "mars",
+            "mairie"
+        ],
+        "expected_answer_summary": "Oui instruction obligatoire dès 3 ans, inscription en mairie de janvier à mars",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, oui, vous devez inscrire votre fille à l'école maternelle dès son âge de 3 ans. L'inscription se fait en mairie de janvier à mars pour la rentrée de septembre. Veillez à avoir un livret de famille, un justificatif de domicile et un carnet de santé à jour pour le processus d'inscription. La mairie délivrera un certificat d'inscription à présenter à l'école.",
+        "latency_seconds": 7.695126345999597,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS017",
+        "type": "reformulation",
+        "question": "Je veux vendre ma voiture, il me faut quoi comme papier de non-gage ?",
+        "faq_id_reference": "DIV007",
+        "expected_keywords": [
+            "certificat",
+            "situation administrative",
+            "ANTS",
+            "Histovec",
+            "gratuit"
+        ],
+        "expected_answer_summary": "Certificat de situation administrative sur ANTS ou Histovec, gratuit et immédiat",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, vous pouvez obtenir un certificat de situation administrative (non-gage) gratuitement et immédiatement en ligne sur le site de l'ANTS (ants.gouv.fr) ou sur Histovec (histovec.interieur.gouv.fr). Ce document est obligatoire lors de la vente d'un véhicule et indique si le véhicule est gagé ou fait l'objet d'une opposition.",
+        "latency_seconds": 8.426514400000087,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS018",
+        "type": "reformulation",
+        "question": "Il y a des bus qui passent par chez nous ? Où voir les horaires ?",
+        "faq_id_reference": "TRA003",
+        "expected_keywords": [
+            "rémi",
+            "application",
+            "office de tourisme",
+            "mairie"
+        ],
+        "expected_answer_summary": "Horaires sur site rémi, application, office de tourisme ou mairie",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, les horaires des bus sont disponibles sur le site Rémi (remi-centrevaldeloire.fr), à l'office de tourisme, et aux arrêts de bus. Vous pouvez également utiliser l'application Rémi pour consulter les horaires en temps réel et calculer votre itinéraire.",
+        "latency_seconds": 6.578206361999946,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS019",
+        "type": "reformulation",
+        "question": "Mon voisin a une fuite d'eau dans la rue, qui appeler ?",
+        "faq_id_reference": "EAU002",
+        "expected_keywords": [
+            "service des eaux",
+            "téléphone",
+            "urgence",
+            "24h/24"
+        ],
+        "expected_answer_summary": "Appeler le service des eaux, numéro urgences disponible 24h/24",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour signaler une fuite d'eau sur la voie publique ou une canalisation du réseau, appelez le service des eaux au 02 XX XX XX XX (urgences 24h/24 au 02 XX XX XX XX). Localisez précisément la fuite (adresse, repère visuel). En cas de fuite importante, le service technique intervient sous 2 heures.",
+        "latency_seconds": 7.087837924999803,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS020",
+        "type": "reformulation",
+        "question": "Pour le mariage civil, c'est quoi la liste des papiers à donner ?",
+        "faq_id_reference": "EC002",
+        "expected_keywords": [
+            "pièce d'identité",
+            "justificatif de domicile",
+            "acte de naissance",
+            "témoins",
+            "1 mois"
+        ],
+        "expected_answer_summary": "Pièce d'identité, justificatif domicile, acte de naissance, liste témoins, dépôt 1 mois avant",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, chaque futur époux doit fournir une pièce d'identité en cours de validité, un justificatif de domicile de moins de 3 mois, un acte de naissance de moins de 3 mois (6 mois si délivré à l'étranger), et la liste des témoins (2 à 4 personnes majeures) pour se marier. Le dossier doit être déposé à la mairie au moins 1 mois avant la date souhaitée.",
+        "latency_seconds": 7.9084612380002,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS021",
+        "type": "hors_sujet",
+        "question": "Quelle est la capitale de l'Australie ?",
+        "faq_id_reference": null,
+        "expected_keywords": [],
+        "expected_answer_summary": "Le système doit indiquer qu'il ne peut pas répondre à cette question (hors périmètre FAQ collectivité)",
+        "difficulty": "facile",
+        "expected_behavior": "aveu_ignorance",
+        "answer_model": " Bonjour, je suis désolé mais je ne suis pas en mesure de répondre à cette question. The given FAQ does not provide information about the capital city of Australia.",
+        "latency_seconds": 5.451412948000325,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS022",
+        "type": "hors_sujet",
+        "question": "Comment faire une tarte aux pommes ?",
+        "faq_id_reference": null,
+        "expected_keywords": [],
+        "expected_answer_summary": "Le système doit indiquer qu'il ne peut pas répondre à cette question (hors périmètre FAQ collectivité)",
+        "difficulty": "facile",
+        "expected_behavior": "aveu_ignorance",
+        "answer_model": " Bonjour, je suis désolé mais je ne suis pas en mesure de répondre à cette question. The provided FAQ only covers topics related to etat civil, urbanisme, dechets, transports, petite-enfance, social, vie associative, elections, logement, culture/sport, fiscalite, eau/assainissement. There is no information about baking a tarte aux pommes in the FAQ.",
+        "latency_seconds": 7.60049928799981,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS023",
+        "type": "hors_sujet",
+        "question": "Quel est le meilleur smartphone en 2025 ?",
+        "faq_id_reference": null,
+        "expected_keywords": [],
+        "expected_answer_summary": "Le système doit indiquer qu'il ne peut pas répondre à cette question (hors périmètre FAQ collectivité)",
+        "difficulty": "facile",
+        "expected_behavior": "aveu_ignorance",
+        "answer_model": " Bonjour, je suis désolé mais je ne suis pas en mesure de répondre à cette question. Les informations fournies ne concernent que certains sujets tels que l'état civil, l'urbanisme, les déchets, les transports, la petite-enfance, le social, la vie associative, les élections, le logement, la culture/sport, la fiscalité, l'eau/assainissement. Il n'y a aucune information disponible sur les caractéristiques de smartphones, notamment ceux sortis en 2025.",
+        "latency_seconds": 8.421703441000318,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS024",
+        "type": "hors_sujet",
+        "question": "Comment investir en bourse ?",
+        "faq_id_reference": null,
+        "expected_keywords": [],
+        "expected_answer_summary": "Le système doit indiquer qu'il ne peut pas répondre à cette question (hors périmètre FAQ collectivité)",
+        "difficulty": "facile",
+        "expected_behavior": "aveu_ignorance",
+        "answer_model": " Bonjour, je suis désolé mais je ne suis pas en mesure de répondre à cette question. Les informations fournies ne traitent pas du sujet de l'investissement en bourse.",
+        "latency_seconds": 5.653825633999986,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS025",
+        "type": "hors_sujet",
+        "question": "Qui a gagné la coupe du monde de football en 1998 ?",
+        "faq_id_reference": null,
+        "expected_keywords": [],
+        "expected_answer_summary": "Le système doit indiquer qu'il ne peut pas répondre à cette question (hors périmètre FAQ collectivité)",
+        "difficulty": "facile",
+        "expected_behavior": "aveu_ignorance",
+        "answer_model": " Bonjour, la question est hors sujet. Je suis désolé mais je ne peux pas répondre à cette question.",
+        "latency_seconds": 5.143020980999609,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS026",
+        "type": "complexe",
+        "question": "Je viens d'avoir un bébé et je ne suis pas mariée avec le père, quelles démarches dois-je faire ?",
+        "faq_id_reference": [
+            "EC005",
+            "EC006"
+        ],
+        "expected_keywords": [
+            "reconnaissance",
+            "livret de famille",
+            "filiation",
+            "mairie"
+        ],
+        "expected_answer_summary": "Le père doit faire une reconnaissance en mairie. Un livret de famille sera délivré à la naissance du premier enfant pour les couples non mariés.",
+        "difficulty": "difficile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour inscrire votre bébé à un centre de loisirs (ALSH), vous devez aller en mairie ou utiliser le portail famille. Vous aurez besoin d'une fiche sanitaire, d'une attestation d'assurance, et d'un justificatif CAF pour le tarif. Vous pouvez faire l'inscription 1 mois avant les vacances. Le tarif par jour varie de 5€ à 25€ (avec repas inclus).\n\nPour vous marier avec le père de l'enfant, chaque futur époux doit fournir une pièce d'identité en cours de validité, un justificatif de domicile de moins de 3 mois, un acte de naissance de moins de 3 mois (6 mois si délivré à l'étranger), et la liste des témoins (2 à 4 personnes majeures). Le dossier doit être déposé à la mairie au moins 1 mois avant la date souhaitée.\n\nSi vous souhaitez demander de l'aide sociale, vous pouvez le faire auprès du CCAS en mairie. Un travailleur social vous recevra sur rendez-vous pour évaluer votre situation et vous orienter vers les aides adaptées.\n\nPour demander un passeport pour vous-même ou pour l'enfant, vous devez aller en mairie équipée pour une demande en personne. Vous devez préparer une photo d'identité aux normes, un justificatif de domicile, et un timbre fiscal (86€ adulte, 42€ 15-17 ans, 17€ moins de 15 ans). Le délai pour obtenir un passeport est de 2 à 6 semaines selon la période.",
+        "latency_seconds": 18.27208562100077,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS027",
+        "type": "complexe",
+        "question": "Je construis une maison avec piscine, quelles autorisations me faut-il ?",
+        "faq_id_reference": [
+            "URB001",
+            "URB003"
+        ],
+        "expected_keywords": [
+            "permis de construire",
+            "déclaration préalable",
+            "piscine",
+            "architecte",
+            "150m²"
+        ],
+        "expected_answer_summary": "Permis de construire pour la maison (architecte si >150m²). Pour la piscine : selon taille, déclaration préalable (10-100m²) ou intégration au permis.",
+        "difficulty": "difficile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour une maison avec piscine, les autorisations suivantes sont nécessaires :\n\n- Si la piscine est installée hors-sol et moins de 3 mois : aucune autorisation.\n- Si la piscine est enterrée et de moins de 10m² : aucune autorisation.\n- Si la piscine est de 10 à 100m² : déclaration préalable de travaux.\n- Si la piscine est au-delà de 100m² ou si l'abri est plus haut de 1,80m : permis de construire.\n\nUne déclaration ou un permis de construire sont des documents officiels demandés par la mairie pour autoriser des travaux sur un terrain. Un dispositif de sécurité homologué est également obligatoire pour la piscine.\n\nJe suis désolé, je ne peux fournir des informations sur les tarifs ou les horaires de la piscine, car cela n'est pas mentionné dans la FAQ.",
+        "latency_seconds": 12.006519991999994,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS028",
+        "type": "complexe",
+        "question": "Je suis en difficulté financière, je n'arrive plus à payer mes factures d'eau et d'électricité, qui peut m'aider ?",
+        "faq_id_reference": [
+            "SOC001",
+            "SOC004"
+        ],
+        "expected_keywords": [
+            "CCAS",
+            "FSL",
+            "chèque énergie",
+            "travailleur social",
+            "aide"
+        ],
+        "expected_answer_summary": "Contacter le CCAS pour un rendez-vous avec un travailleur social. Le FSL peut aider pour les factures. Vérifier l'éligibilité au chèque énergie.",
+        "difficulty": "difficile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, le Fonds de Solidarité Logement (FSL) peut prendre en charge une partie de vos factures d'énergie en cas de difficulté. Vous pouvez contacter le Centre Communautaire d'Action Sociale (CCAS) ou un conseiller France Services pour vérifier votre éligibilité et constituer un dossier FSL.",
+        "latency_seconds": 6.862186704999658,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS029",
+        "type": "complexe",
+        "question": "Mon association veut organiser un vide-grenier sur la place du village, comment faire ?",
+        "faq_id_reference": [
+            "ASS003",
+            "ASS004"
+        ],
+        "expected_keywords": [
+            "déclaration",
+            "mairie",
+            "1 mois",
+            "assurance",
+            "autorisation",
+            "voie publique"
+        ],
+        "expected_answer_summary": "Déclaration en mairie 1 mois avant avec descriptif, plan, assurance. Demande d'autorisation d'occupation du domaine public.",
+        "difficulty": "difficile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour organiser un vide-grenier sur la place du village, vous devez contacter la mairie ou le service ville associative. Ils vous fourniront les informations nécessaires pour faire une demande et réserver la place. Ce type d'événement est généralement gratuit pour les associations locales. Veillez à respecter les règlements et réglementations locales en matière de collecte et de vente des objets.",
+        "latency_seconds": 7.498737386999892,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS030",
+        "type": "complexe",
+        "question": "J'emménage dans la commune, quelles sont toutes les démarches administratives à faire ?",
+        "faq_id_reference": [
+            "ELE001",
+            "EAU001",
+            "FIS003",
+            "ENF004"
+        ],
+        "expected_keywords": [
+            "listes électorales",
+            "compteur eau",
+            "impôts",
+            "école"
+        ],
+        "expected_answer_summary": "Inscription listes électorales, ouverture compteur eau, changement adresse impôts, inscription école si enfants.",
+        "difficulty": "difficile",
+        "expected_behavior": NaN,
+        "answer_model": " Bonjour, pour emménager dans une nouvelle commune, il est nécessaire de faire plusieurs démarches administratives. D'abord, il faut signaler votre nouvelle adresse en mairie pour être rattaché au bon bureau de vote et recevoir les services publics de votre commune. Ensuite, pour faire une demande de logement social, vous pouvez le faire en ligne sur demande-logement-social.gouv.fr ou en mairie, avec des documents tels que vos pièces d'identité, avis d'imposition et justificatifs de revenus. Enfin, si vous bénéficiez d'aides sociales, vous pouvez faire une demande auprès du CCAS en mairie pour évaluer votre situation et vous orienter vers les aides adaptées. Vous pouvez également contester la taxe d'habitation sur vos résidences secondaires ou locaux vacants via votre espace personnel sur impots.gouv.fr ou par courrier au centre des impôts. Je suis désolé, je ne peux pas vous donner des informations sur les sujets état civil, urbanisme, déchets, transports, petite-enfance, culture/sport et eau/assainissement avec les informations fournies.",
+        "latency_seconds": 13.949558978999448,
+        "strategy": "rag",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS001",
+        "type": "direct_match",
+        "question": "Comment obtenir un acte de naissance ?",
+        "faq_id_reference": "EC001",
+        "expected_keywords": [
+            "service-public.fr",
+            "mairie",
+            "lieu de naissance",
+            "gratuit",
+            "pièce d'identité"
+        ],
+        "expected_answer_summary": "Demande en ligne, par courrier ou en mairie du lieu de naissance, gratuite, avec pièce d'identité",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": "faire la demande en ligne sur le site service-public.fr, par courrier à la mairie du lieu de naissance, ou directement au guichet.",
+        "latency_seconds": 5.2457968570006415,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS002",
+        "type": "direct_match",
+        "question": "Quels sont les horaires de la déchetterie ?",
+        "faq_id_reference": "DEC006",
+        "expected_keywords": [
+            "lundi",
+            "samedi",
+            "9h",
+            "12h",
+            "14h",
+            "18h",
+            "17h",
+            "hiver"
+        ],
+        "expected_answer_summary": "Lundi au samedi 9h-12h et 14h-18h (17h en hiver), fermée dimanche et jours fériés",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": "du lundi au samedi de 9h à 18h.",
+        "latency_seconds": 0.6393481790000806,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS003",
+        "type": "direct_match",
+        "question": "Comment s'inscrire sur les listes électorales ?",
+        "faq_id_reference": "ELE001",
+        "expected_keywords": [
+            "service-public.fr",
+            "mairie",
+            "pièce d'identité",
+            "justificatif de domicile"
+        ],
+        "expected_answer_summary": "En ligne, en mairie ou par courrier avec pièce d'identité et justificatif de domicile",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": "en ligne sur service-public.fr, en mairie, ou par courrier.",
+        "latency_seconds": 0.5329643380000562,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS004",
+        "type": "direct_match",
+        "question": "Comment demander un permis de construire ?",
+        "faq_id_reference": "URB001",
+        "expected_keywords": [
+            "mairie",
+            "4 exemplaires",
+            "Cerfa",
+            "plan",
+            "2 mois",
+            "3 mois"
+        ],
+        "expected_answer_summary": "Dépôt en mairie en 4 exemplaires, formulaire Cerfa, plans requis, délai 2-3 mois",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": "en ligne sur le site de l'ANTS (ants.gouv.fr). Vous aurez besoin : d'une photo numérique, d'un justificatif de domicile, et d'une déclaration de perte ou d'un récépissé de dépôt de plainte. Coût : 25€. Délai : 2 à 3 semaines.\n\nLe permis de construire se dépose à la mairie en 4 exemplaires",
+        "latency_seconds": 0.536784814999919,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS005",
+        "type": "direct_match",
+        "question": "Quels déchets mettre dans le bac jaune ?",
+        "faq_id_reference": "DEC004",
+        "expected_keywords": [
+            "emballages plastiques",
+            "bouteilles",
+            "métalliques",
+            "conserves",
+            "cartons",
+            "papiers"
+        ],
+        "expected_answer_summary": "Emballages plastiques, métalliques, briques alimentaires, papiers-cartons, vides mais non lavés",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": "emballages plastiques (bouteilles, flacons, pots, barquettes, films), emballages métalliques (conserves, canettes, aérosols vides), briques alimentaires, et tous les papiers-cartons",
+        "latency_seconds": 0.5325423300000693,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS006",
+        "type": "direct_match",
+        "question": "Comment faire une procuration pour voter ?",
+        "faq_id_reference": "ELE002",
+        "expected_keywords": [
+            "maprocuration.gouv.fr",
+            "commissariat",
+            "gendarmerie",
+            "même commune"
+        ],
+        "expected_answer_summary": "En ligne sur maprocuration.gouv.fr puis validation en commissariat/gendarmerie, mandataire même commune",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": "en ligne sur maprocuration.gouv.fr puis validation dans un commissariat, une gendarmerie ou un consulat. Vous pouvez aussi vous y rendre directement avec votre pièce d'identité. Le mandataire doit être inscrit dans la même commune. Une personne peut détenir 1 procuration établie en France (3 si établie à l'étranger).\n\nPour voter, présentez une pièce d'identité avec photo",
+        "latency_seconds": 0.5364049579993662,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS007",
+        "type": "direct_match",
+        "question": "Comment inscrire mon enfant à la crèche ?",
+        "faq_id_reference": "ENF001",
+        "expected_keywords": [
+            "Relais Petite Enfance",
+            "dossier",
+            "pièces d'identité",
+            "commission"
+        ],
+        "expected_answer_summary": "Inscription au Relais Petite Enfance avec dossier complet, attribution en commission",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": "Constituez un dossier avec : pièces d'identité des parents, livret de famille, justificatif de domicile, justificatifs de revenus, carnet de santé de l'enfant.",
+        "latency_seconds": 0.5339735449997534,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS008",
+        "type": "direct_match",
+        "question": "Comment créer une association loi 1901 ?",
+        "faq_id_reference": "ASS001",
+        "expected_keywords": [
+            "greffe",
+            "préfecture",
+            "statuts",
+            "44€",
+            "Journal Officiel"
+        ],
+        "expected_answer_summary": "Déclaration au greffe des associations, statuts signés, publication JO à 44€",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": "déposez une déclaration au greffe des associations",
+        "latency_seconds": 0.5362517439998555,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS009",
+        "type": "direct_match",
+        "question": "Comment obtenir la carte mobilité inclusion ?",
+        "faq_id_reference": "SOC003",
+        "expected_keywords": [
+            "MDPH",
+            "Cerfa",
+            "4 à 6 mois",
+            "gratuite"
+        ],
+        "expected_answer_summary": "Demande à la MDPH via formulaire Cerfa, délai 4-6 mois, gratuit",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": "via le formulaire Cerfa 15692.",
+        "latency_seconds": 0.5330051740002091,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS010",
+        "type": "direct_match",
+        "question": "Quels sont les tarifs de la cantine scolaire ?",
+        "faq_id_reference": "ENF002",
+        "expected_keywords": [
+            "quotient familial",
+            "1,50€",
+            "5,50€",
+            "CAF"
+        ],
+        "expected_answer_summary": "Tarifs selon quotient familial CAF de 1,50€ à 5,50€ par repas",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": "adulte 4,50€, enfant 3€, carnet 10 entrées 35€/25€.",
+        "latency_seconds": 0.5144233840001107,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS011",
+        "type": "reformulation",
+        "question": "Je voudrais un extrait de naissance, comment faire ?",
+        "faq_id_reference": "EC001",
+        "expected_keywords": [
+            "service-public.fr",
+            "mairie",
+            "lieu de naissance",
+            "gratuit"
+        ],
+        "expected_answer_summary": "Même réponse que pour acte de naissance",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": "photo d'identité aux normes, justificatif de domicile, ancien titre si renouvellement.",
+        "latency_seconds": 0.560161013000652,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS012",
+        "type": "reformulation",
+        "question": "C'est quoi les jours de ramassage des poubelles ?",
+        "faq_id_reference": "DEC001",
+        "expected_keywords": [
+            "mardi",
+            "vendredi",
+            "mercredi",
+            "centre-ville",
+            "périphérie"
+        ],
+        "expected_answer_summary": "Mardi et vendredi centre-ville, mercredi quartiers périphériques",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": "mardi et le vendredi",
+        "latency_seconds": 0.43071278699972027,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS013",
+        "type": "reformulation",
+        "question": "On peut jeter quoi dans la poubelle de recyclage ?",
+        "faq_id_reference": "DEC004",
+        "expected_keywords": [
+            "emballages",
+            "plastique",
+            "métal",
+            "carton",
+            "papier"
+        ],
+        "expected_answer_summary": "Emballages plastiques, métalliques, cartons, papiers",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": "déchets verts",
+        "latency_seconds": 0.5356446939995294,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS014",
+        "type": "reformulation",
+        "question": "J'ai perdu mon permis de conduire, que dois-je faire ?",
+        "faq_id_reference": "DIV003",
+        "expected_keywords": [
+            "ANTS",
+            "duplicata",
+            "photo",
+            "25€"
+        ],
+        "expected_answer_summary": "Demande de duplicata sur ANTS, 25€, 2-3 semaines",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": "faites la demande de duplicata",
+        "latency_seconds": 0.6240193510002428,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS015",
+        "type": "reformulation",
+        "question": "Je déménage, comment prévenir les impôts ?",
+        "faq_id_reference": "FIS003",
+        "expected_keywords": [
+            "impots.gouv.fr",
+            "profil",
+            "déclaration",
+            "service-public.fr"
+        ],
+        "expected_answer_summary": "En ligne sur impots.gouv.fr ou lors de la déclaration annuelle",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": "\"Je change d'adresse\"",
+        "latency_seconds": 0.5496088499994585,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS016",
+        "type": "reformulation",
+        "question": "Ma fille a 3 ans, je dois l'inscrire à la maternelle ?",
+        "faq_id_reference": "ENF004",
+        "expected_keywords": [
+            "obligatoire",
+            "3 ans",
+            "janvier",
+            "mars",
+            "mairie"
+        ],
+        "expected_answer_summary": "Oui instruction obligatoire dès 3 ans, inscription en mairie de janvier à mars",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": "L'inscription en maternelle se fait en mairie de janvier à mars pour la rentrée de septembre.",
+        "latency_seconds": 0.5344479720006348,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS017",
+        "type": "reformulation",
+        "question": "Je veux vendre ma voiture, il me faut quoi comme papier de non-gage ?",
+        "faq_id_reference": "DIV007",
+        "expected_keywords": [
+            "certificat",
+            "situation administrative",
+            "ANTS",
+            "Histovec",
+            "gratuit"
+        ],
+        "expected_answer_summary": "Certificat de situation administrative sur ANTS ou Histovec, gratuit et immédiat",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": "certificat de situation administrative",
+        "latency_seconds": 0.5534896439994554,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS018",
+        "type": "reformulation",
+        "question": "Il y a des bus qui passent par chez nous ? Où voir les horaires ?",
+        "faq_id_reference": "TRA003",
+        "expected_keywords": [
+            "rémi",
+            "application",
+            "office de tourisme",
+            "mairie"
+        ],
+        "expected_answer_summary": "Horaires sur site rémi, application, office de tourisme ou mairie",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": "l'office de tourisme, et aux arrêts de bus.",
+        "latency_seconds": 0.6221179539998047,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS019",
+        "type": "reformulation",
+        "question": "Mon voisin a une fuite d'eau dans la rue, qui appeler ?",
+        "faq_id_reference": "EAU002",
+        "expected_keywords": [
+            "service des eaux",
+            "téléphone",
+            "urgence",
+            "24h/24"
+        ],
+        "expected_answer_summary": "Appeler le service des eaux, numéro urgences disponible 24h/24",
+        "difficulty": "facile",
+        "expected_behavior": NaN,
+        "answer_model": "service des eaux au 02 XX XX XX XX",
+        "latency_seconds": 0.5323325559993464,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS020",
+        "type": "reformulation",
+        "question": "Pour le mariage civil, c'est quoi la liste des papiers à donner ?",
+        "faq_id_reference": "EC002",
+        "expected_keywords": [
+            "pièce d'identité",
+            "justificatif de domicile",
+            "acte de naissance",
+            "témoins",
+            "1 mois"
+        ],
+        "expected_answer_summary": "Pièce d'identité, justificatif domicile, acte de naissance, liste témoins, dépôt 1 mois avant",
+        "difficulty": "moyen",
+        "expected_behavior": NaN,
+        "answer_model": "une pièce d'identité en cours de validité, un justificatif de domicile de moins de 3 mois, un acte de naissance de moins de 3 mois (6 mois si délivré à l'étranger), la liste des témoins",
+        "latency_seconds": 0.43283929100016394,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS021",
+        "type": "hors_sujet",
+        "question": "Quelle est la capitale de l'Australie ?",
+        "faq_id_reference": null,
+        "expected_keywords": [],
+        "expected_answer_summary": "Le système doit indiquer qu'il ne peut pas répondre à cette question (hors périmètre FAQ collectivité)",
+        "difficulty": "facile",
+        "expected_behavior": "aveu_ignorance",
+        "answer_model": "Je ne suis pas en mesure de répondre à cette question.",
+        "latency_seconds": 0.5334252160000688,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS022",
+        "type": "hors_sujet",
+        "question": "Comment faire une tarte aux pommes ?",
+        "faq_id_reference": null,
+        "expected_keywords": [],
+        "expected_answer_summary": "Le système doit indiquer qu'il ne peut pas répondre à cette question (hors périmètre FAQ collectivité)",
+        "difficulty": "facile",
+        "expected_behavior": "aveu_ignorance",
+        "answer_model": "Je ne suis pas en mesure de répondre à cette question.",
+        "latency_seconds": 0.5398627439999473,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS023",
+        "type": "hors_sujet",
+        "question": "Quel est le meilleur smartphone en 2025 ?",
+        "faq_id_reference": null,
+        "expected_keywords": [],
+        "expected_answer_summary": "Le système doit indiquer qu'il ne peut pas répondre à cette question (hors périmètre FAQ collectivité)",
+        "difficulty": "facile",
+        "expected_behavior": "aveu_ignorance",
+        "answer_model": "Je ne suis pas en mesure de répondre à cette question.",
+        "latency_seconds": 0.4211423639999339,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS024",
+        "type": "hors_sujet",
+        "question": "Comment investir en bourse ?",
+        "faq_id_reference": null,
+        "expected_keywords": [],
+        "expected_answer_summary": "Le système doit indiquer qu'il ne peut pas répondre à cette question (hors périmètre FAQ collectivité)",
+        "difficulty": "facile",
+        "expected_behavior": "aveu_ignorance",
+        "answer_model": "espèces",
+        "latency_seconds": 0.44457857700035674,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS025",
+        "type": "hors_sujet",
+        "question": "Qui a gagné la coupe du monde de football en 1998 ?",
+        "faq_id_reference": null,
+        "expected_keywords": [],
+        "expected_answer_summary": "Le système doit indiquer qu'il ne peut pas répondre à cette question (hors périmètre FAQ collectivité)",
+        "difficulty": "facile",
+        "expected_behavior": "aveu_ignorance",
+        "answer_model": "Je ne suis pas en mesure de répondre à cette question.",
+        "latency_seconds": 0.43345053200027905,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS026",
+        "type": "complexe",
+        "question": "Je viens d'avoir un bébé et je ne suis pas mariée avec le père, quelles démarches dois-je faire ?",
+        "faq_id_reference": [
+            "EC005",
+            "EC006"
+        ],
+        "expected_keywords": [
+            "reconnaissance",
+            "livret de famille",
+            "filiation",
+            "mairie"
+        ],
+        "expected_answer_summary": "Le père doit faire une reconnaissance en mairie. Un livret de famille sera délivré à la naissance du premier enfant pour les couples non mariés.",
+        "difficulty": "difficile",
+        "expected_behavior": NaN,
+        "answer_model": "établir la filiation.",
+        "latency_seconds": 0.43095141100002365,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS027",
+        "type": "complexe",
+        "question": "Je construis une maison avec piscine, quelles autorisations me faut-il ?",
+        "faq_id_reference": [
+            "URB001",
+            "URB003"
+        ],
+        "expected_keywords": [
+            "permis de construire",
+            "déclaration préalable",
+            "piscine",
+            "architecte",
+            "150m²"
+        ],
+        "expected_answer_summary": "Permis de construire pour la maison (architecte si >150m²). Pour la piscine : selon taille, déclaration préalable (10-100m²) ou intégration au permis.",
+        "difficulty": "difficile",
+        "expected_behavior": NaN,
+        "answer_model": "permis de construire.",
+        "latency_seconds": 0.4319433660002687,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS028",
+        "type": "complexe",
+        "question": "Je suis en difficulté financière, je n'arrive plus à payer mes factures d'eau et d'électricité, qui peut m'aider ?",
+        "faq_id_reference": [
+            "SOC001",
+            "SOC004"
+        ],
+        "expected_keywords": [
+            "CCAS",
+            "FSL",
+            "chèque énergie",
+            "travailleur social",
+            "aide"
+        ],
+        "expected_answer_summary": "Contacter le CCAS pour un rendez-vous avec un travailleur social. Le FSL peut aider pour les factures. Vérifier l'éligibilité au chèque énergie.",
+        "difficulty": "difficile",
+        "expected_behavior": NaN,
+        "answer_model": "Un travailleur social",
+        "latency_seconds": 0.4157045069996457,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS029",
+        "type": "complexe",
+        "question": "Mon association veut organiser un vide-grenier sur la place du village, comment faire ?",
+        "faq_id_reference": [
+            "ASS003",
+            "ASS004"
+        ],
+        "expected_keywords": [
+            "déclaration",
+            "mairie",
+            "1 mois",
+            "assurance",
+            "autorisation",
+            "voie publique"
+        ],
+        "expected_answer_summary": "Déclaration en mairie 1 mois avant avec descriptif, plan, assurance. Demande d'autorisation d'occupation du domaine public.",
+        "difficulty": "difficile",
+        "expected_behavior": NaN,
+        "answer_model": "Je ne suis pas en mesure de répondre à cette question.",
+        "latency_seconds": 0.4509737589996803,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    },
+    {
+        "id": "GS030",
+        "type": "complexe",
+        "question": "J'emménage dans la commune, quelles sont toutes les démarches administratives à faire ?",
+        "faq_id_reference": [
+            "ELE001",
+            "EAU001",
+            "FIS003",
+            "ENF004"
+        ],
+        "expected_keywords": [
+            "listes électorales",
+            "compteur eau",
+            "impôts",
+            "école"
+        ],
+        "expected_answer_summary": "Inscription listes électorales, ouverture compteur eau, changement adresse impôts, inscription école si enfants.",
+        "difficulty": "difficile",
+        "expected_behavior": NaN,
+        "answer_model": "Je ne suis pas en mesure de répondre à cette question.",
+        "latency_seconds": 0.4334524669993698,
+        "strategy": "extractive_qa",
+        "complexite_score_method": 0.7
+    }
+]
