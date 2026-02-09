@@ -51,8 +51,8 @@ Concevoir, développer et déployer une API d'assistance FAQ intégrant un LLM, 
 - [x] Rapport de benchmark avec recommandation
 
 ### Phase 5 - API (J7)
-- [ ] API FastAPI fonctionnelle
-- [ ] Documentation OpenAPI
+- [x] API FastAPI fonctionnelle
+- [x] Documentation OpenAPI
 - **JALON 3** : API opérationnelle validée
 
 ### Phase 6 - Tests & CI/CD (J8)
