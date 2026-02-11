@@ -6,7 +6,7 @@ import json
 
 from src.main import app
 from src.models import AnswerResponse, FAQ
-from src.routes import get_rag_service, get_faq_df
+from src.routes.api_router import get_rag_service, get_faq_df
 from src.services.rag_service import RAGService
 from src.services.data_loader import load_faq_data
 
@@ -30,7 +30,11 @@ class TestApiE2E:
         """
         response = client.get("/health")
         assert response.status_code == 200
-        assert response.json() == {"status": "ok"}
+        json_response = response.json()
+        assert json_response["status"] == "ok"
+        assert "timestamp" in json_response
+        assert "version" in json_response
+        assert "faq_count" in json_response
 
     def test_e2e_answer_endpoint(self, client, mock_functional_llm_client):
         """

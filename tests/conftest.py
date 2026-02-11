@@ -43,7 +43,7 @@ MOCK_FAQ_DATA_RAG_SERVICE_FUNCTIONAL = [
 
 @pytest.fixture
 def mock_data_loader_df():
-    with patch("src.routes.load_faq_data") as mock_dl:
+    with patch("src.services.data_loader.load_faq_data") as mock_dl:
         mock_dl.return_value = MOCK_FAQ_DATA_DF
         yield mock_dl
 
@@ -145,7 +145,7 @@ def functional_mock_hf_token_env():
 
 @pytest.fixture(autouse=True)
 def reset_rag_service_instance_routes():
-    from src.routes import _rag_service_instance
+    from src.routes.api_router import _rag_service_instance
     _rag_service_instance = None
     yield
 
