@@ -53,7 +53,36 @@ pytest
 Pour mesurer la couverture de code et générer un rapport HTML :
 ```bash
 pytest --cov=src --cov-report=html
-# Pour ouvrir le rapport HTML (adapté à votre OS) :
-# xdg-open htmlcov/index.html # Linux
-# open htmlcov/index.html     # macOS
 ```
+
+## Lancement de l'application et du monitoring
+
+1.  **Prérequis**: Assurez-vous d'avoir Docker, Docker Compose et Python avec `uvicorn` installés sur votre système.
+
+2.  **Configurer le token Hugging Face**:
+    L'API nécessite un token Hugging Face (`HF_TOKEN`) dans un `.env`.
+    ```
+    HF_TOKEN="votre_token_hugging_face"
+    ```
+
+3.  **Lancer les services de monitoring (Prometheus et Grafana)**:
+    Depuis la racine du projet, exécutez la commande suivante pour construire et démarrer les services de monitoring :
+    ```bash
+    docker compose up --build -d prometheus grafana
+    ```
+    L'option `-d` permet de lancer les conteneurs en arrière-plan.
+
+4.  **Lancer l'API FastAPI**:
+    Dans un terminal séparé, depuis la racine du projet, activez votre environnement virtuel (si vous en utilisez un) et lancez l'API avec `uvicorn` :
+    ```bash
+    uvicorn src.main:app --host 0.0.0.0 --port 8000
+    ```
+    Assurez-vous d'avoir installé les dépendances du projet localement (`uv sync`).
+
+5.  **Accéder aux interfaces**:
+    Une fois tous les services démarrés :
+    *   **API FastAPI**: `http://localhost:8000`
+    *   **Prometheus UI**: `http://localhost:9090`
+    *   **Grafana UI**: `http://localhost:3000` (identifiants par défaut : `admin`/`admin`)
+
+    Vous devrez configurer Prometheus comme source de données dans Grafana (URL : `http://host.docker.internal:9090` si vous êtes sur Docker Desktop/macOS/Windows ou `http://<VOTRE_IP_LOCALE>:9090` sur Linux). Les tableaux de bord provisionnés seront automatiquement chargés si des fichiers JSON sont placés dans `grafana/dashboards`.

@@ -5,12 +5,16 @@ import pandas as pd
 from dotenv import load_dotenv
 from huggingface_hub import InferenceClient
 from sentence_transformers import SentenceTransformer, util
+import logging
 
-from src.services.data_loader import load_faq_data
+from .data_loader import load_faq_data
+from src.routes.metrics import REQUEST_COUNT, RESPONSE_TIME, CONFIDENCE_SCORE
 
 load_dotenv()
 
 MODEL_ID = "mistralai/Mistral-7B-Instruct-v0.2"
+
+logger = logging.getLogger("faq_api")
 
 @lru_cache(maxsize=1)
 def get_llm_client():
@@ -101,57 +105,79 @@ class RAGService:
         return context, sources, confidence_score
 
     def answer_question(self, question):
+        logger.info(f"Question received: '{question}'")
         start_time = time.perf_counter()
         
-        context, sources, confidence = self._find_context(question)
-        
-        if not context:
+        try:
+            context, sources, confidence = self._find_context(question)
+            
+            if not context:
+                logger.warning(f"No context found for question: '{question}'")
+                REQUEST_COUNT.labels(endpoint="/answer", status="no_context").inc()
+                duration = time.perf_counter() - start_time
+                RESPONSE_TIME.labels(strategy="default").observe(duration)
+                CONFIDENCE_SCORE.observe(0.0) # No confidence if no context
+                return {
+                    "answer": "Je suis désolé, mais je n'ai pas trouvé d'informations pertinentes pour répondre à votre question.",
+                    "confidence": 0.0,
+                    "sources": [],
+                    "latency_ms": duration * 1000,
+                }
+
+            client = get_llm_client()
+            
+            base_system_prompt = (
+                "Tu es un assistant municipal expert de la communauté de communes Val de Loire Numérique.\n"
+                "Ton but est de répondre en français EXCLUSIVEMENT aux questions sur les sujets de la FAQ fournie.\n"
+                "Règles OBLIGATOIRES :\n"
+                "- Si tu n'as pas suffisamment d'informations pour répondre, utilise la phrase: 'Bonjour, je suis désolé mais je ne suis pas en mesure de répondre à cette question.'\n"
+                "- Sinon, commence toujours par 'Bonjour'.\n"
+                "- Tu dois t'appuyer STRICTEMENT sur la FAQ fournie en contexte pour répondre. Ne mentionne JAMAIS la FAQ dans ta réponse."
+            )
+
+            final_system_prompt = (
+                base_system_prompt
+                + "\n\n--- CONTEXTE FAQ ---\n"
+                + context
+                + "\n--- FIN DU CONTEXTE ---"
+            )
+            
+            messages = [
+                {"role": "system", "content": final_system_prompt},
+                {"role": "user", "content": question},
+            ]
+
+            completion = client.chat.completions.create(
+                model=self.model_id,
+                messages=messages,
+                max_tokens=512,
+                temperature=0.3,
+                top_p=0.9,
+            )
+            
+            answer_text = completion.choices[0].message.content
+
+            duration = time.perf_counter() - start_time
+            latency_ms = duration * 1000
+
+            REQUEST_COUNT.labels(endpoint="/answer", status="success").inc()
+            RESPONSE_TIME.labels(strategy="default").observe(duration)
+            CONFIDENCE_SCORE.observe(confidence)
+
+            if confidence < 0.3:
+                logger.warning(f"Low confidence detected for question: '{question}'. Confidence: {confidence:.2f}")
+
+            logger.info(f"Answer generated in {latency_ms:.0f}ms with confidence {confidence:.2f}. Sources: {sources}")
+
             return {
-                "answer": "Je suis désolé, mais je n'ai pas trouvé d'informations pertinentes pour répondre à votre question.",
-                "confidence": 0.0,
-                "sources": [],
-                "latency_ms": (time.perf_counter() - start_time) * 1000,
+                "answer": answer_text,
+                "confidence": confidence,
+                "sources": sources,
+                "latency_ms": latency_ms,
             }
-
-        client = get_llm_client()
-        
-        base_system_prompt = (
-            "Tu es un assistant municipal expert de la communauté de communes Val de Loire Numérique.\n"
-            "Ton but est de répondre en français EXCLUSIVEMENT aux questions sur les sujets de la FAQ fournie.\n"
-            "Règles OBLIGATOIRES :\n"
-            "- Si tu n'as pas suffisamment d'informations pour répondre, utilise la phrase: 'Bonjour, je suis désolé mais je ne suis pas en mesure de répondre à cette question.'\n"
-            "- Sinon, commence toujours par 'Bonjour'.\n"
-            "- Tu dois t'appuyer STRICTEMENT sur la FAQ fournie en contexte pour répondre. Ne mentionne JAMAIS la FAQ dans ta réponse."
-        )
-
-        final_system_prompt = (
-            base_system_prompt
-            + "\n\n--- CONTEXTE FAQ ---\n"
-            + context
-            + "\n--- FIN DU CONTEXTE ---"
-        )
-        
-        messages = [
-            {"role": "system", "content": final_system_prompt},
-            {"role": "user", "content": question},
-        ]
-
-        completion = client.chat.completions.create(
-            model=self.model_id,
-            messages=messages,
-            max_tokens=512,
-            temperature=0.3,
-            top_p=0.9,
-        )
-        
-        answer_text = completion.choices[0].message.content
-
-        end_time = time.perf_counter()
-        latency_ms = (end_time - start_time) * 1000
-
-        return {
-            "answer": answer_text,
-            "confidence": confidence,
-            "sources": sources,
-            "latency_ms": latency_ms,
-        }
+        except Exception as e:
+            duration = time.perf_counter() - start_time
+            REQUEST_COUNT.labels(endpoint="/answer", status="error").inc()
+            RESPONSE_TIME.labels(strategy="default").observe(duration)
+            logger.error(f"Error answering question '{question}': {e}", exc_info=True)
+            raise
