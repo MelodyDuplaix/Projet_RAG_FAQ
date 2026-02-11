@@ -7,20 +7,32 @@ from fastapi import HTTPException
 from src.main import app
 from src.models import AnswerResponse, FAQ
 from src.routes import get_rag_service
+from src.services.rag_service import RAGService
 
 
-def test_get_answer(client, mock_rag_service_routes, mock_data_loader_df):
-    response = client.post(
-        "/api/v1/answer", json={"question": "Test question?"}
-    )
-    assert response.status_code == 200
-    answer_response = AnswerResponse(**response.json())
-    assert answer_response.answer == "Mocked Answer"
-    assert answer_response.confidence == 0.95
-    assert "doc_mock" in answer_response.sources
-    mock_rag_service_routes.return_value.answer_question.assert_called_once_with(
-        "Test question?"
-    )
+def test_get_answer(client, mock_data_loader_df):
+    mock_rag_service = MagicMock(spec=RAGService)
+    mock_rag_service.answer_question.return_value = {
+        "answer": "Mocked LLM Answer",
+        "confidence": 0.95,
+        "sources": ["doc_mock"],
+        "latency_ms": 100.0,
+    }
+    app.dependency_overrides[get_rag_service] = lambda: mock_rag_service
+    try:
+        response = client.post(
+            "/api/v1/answer", json={"question": "Test question?"}
+        )
+        assert response.status_code == 200
+        answer_response = AnswerResponse(**response.json())
+        assert answer_response.answer == "Mocked LLM Answer"
+        assert answer_response.confidence == 0.95
+        assert "doc_mock" in answer_response.sources
+        mock_rag_service.answer_question.assert_called_once_with( 
+            "Test question?"
+        )
+    finally:
+        app.dependency_overrides = {} 
 
 def test_get_answer_internal_error(client, mock_data_loader_df):
     mock_rag_service_instance = MagicMock()

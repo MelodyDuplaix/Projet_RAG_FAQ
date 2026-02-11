@@ -8,9 +8,9 @@ from fastapi.testclient import TestClient
 from fastapi import HTTPException
 
 from src.main import app
-
 from src.services.rag_service import RAGService, get_llm_client
 from src.services.data_loader import load_faq_data
+from sentence_transformers import SentenceTransformer, util
 
 @pytest.fixture(scope="function")
 def client():
@@ -34,6 +34,12 @@ MOCK_FAQ_DATA_NO_ID = {
         {"question": "Q1", "answer": "A1"},
     ]
 }
+
+MOCK_FAQ_DATA_RAG_SERVICE_FUNCTIONAL = [
+    {"id": "EC001", "question": "Comment obtenir un acte de naissance ?", "answer": "Pour obtenir un acte de naissance, vous pouvez faire la demande en ligne sur le site service-public.fr.", "category": "etat_civil", "keywords": ["naissance", "acte"]},
+    {"id": "URB001", "question": "Comment déposer un permis de construire ?", "answer": "Le permis de construire se dépose à la mairie.", "category": "urbanisme", "keywords": ["permis", "construire"]},
+    {"id": "DIV001", "question": "Comment obtenir un extrait de casier judiciaire ?", "answer": "Le bulletin n°3 du casier judiciaire se demande gratuitement en ligne.", "category": "etat_civil", "keywords": ["casier judiciaire", "extrait"]},
+]
 
 @pytest.fixture
 def mock_data_loader_df():
@@ -65,9 +71,20 @@ def mock_load_faq_data_rag():
         yield mock_data_loader
 
 @pytest.fixture
+def mock_faq_data_for_rag_service():
+    """Provides a consistent mock for load_faq_data for RAGService functional tests."""
+    with patch("src.services.rag_service.load_faq_data") as mock_load_faq:
+        mock_load_faq.return_value = pd.DataFrame(MOCK_FAQ_DATA_RAG_SERVICE_FUNCTIONAL)
+        yield mock_load_faq
+
+@pytest.fixture
 def mock_sentence_transformer():
+    """
+    Mocks SentenceTransformer for unit tests.
+    Provides dummy embeddings for 3 FAQ items and a user question.
+    """
     with patch("src.services.rag_service.SentenceTransformer") as mock_st:
-        mock_instance = MagicMock()
+        mock_instance = MagicMock(spec=SentenceTransformer)
         mock_instance.encode.return_value = torch.tensor([
             [0.1, 0.2, 0.3],
             [0.4, 0.5, 0.6],
@@ -75,6 +92,26 @@ def mock_sentence_transformer():
         ])
         mock_st.return_value = mock_instance
         yield mock_st
+
+@pytest.fixture
+def mock_functional_sentence_transformer():
+    """
+    Mocks SentenceTransformer for functional tests.
+    Provides dummy embeddings for MOCK_FAQ_DATA_RAG_SERVICE_FUNCTIONAL and user questions.
+    The side_effect is a list of return values for successive calls to encode.
+    """
+    with patch("src.services.rag_service.SentenceTransformer") as MockSentenceTransformer:
+        mock_embed_model = MagicMock(spec=SentenceTransformer)
+        
+        mock_embed_model.encode.side_effect = [
+            util.normalize_embeddings(torch.tensor([[0.1, 0.1, 0.1], [0.2, 0.2, 0.2], [0.9, 0.9, 0.9]])),
+            util.normalize_embeddings(torch.tensor([[0.8, 0.8, 0.8]])),
+            util.normalize_embeddings(torch.tensor([[0.15, 0.15, 0.15]])),
+            util.normalize_embeddings(torch.tensor([[-1.0, -1.0, -1.0]])),
+            util.normalize_embeddings(torch.tensor([[0.15, 0.15, 0.15]]))
+        ]
+        MockSentenceTransformer.return_value = mock_embed_model
+        yield MockSentenceTransformer
 
 @pytest.fixture
 def mock_inference_client():
@@ -86,26 +123,33 @@ def mock_inference_client():
         mock_client.return_value = mock_instance
         yield mock_client
 
+@pytest.fixture
+def mock_functional_llm_client():
+    with patch("src.services.rag_service.get_llm_client") as mock_get_llm_client:
+        mock_client = MagicMock()
+        mock_completion = MagicMock()
+        mock_completion.choices = [MagicMock(message=MagicMock(content="Mocked LLM Answer based on context."))]
+        mock_client.chat.completions.create.return_value = mock_completion
+        mock_get_llm_client.return_value = mock_client
+        yield mock_client
+
 @pytest.fixture(autouse=True)
 def mock_hf_token():
     with patch.dict(os.environ, {"HF_TOKEN": "test_token"}):
         yield
 
+@pytest.fixture
+def functional_mock_hf_token_env():
+    with patch.dict(os.environ, {"HF_TOKEN": "test_functional_token"}):
+        yield
+
 @pytest.fixture(autouse=True)
 def reset_rag_service_instance_routes():
-   
     from src.routes import _rag_service_instance
     _rag_service_instance = None
     yield
 
 @pytest.fixture
-def mock_rag_service_routes():
-    with patch("src.routes.RAGService") as mock_rag:
-        instance = mock_rag.return_value
-        instance.answer_question.return_value = {
-            "answer": "Mocked Answer",
-            "confidence": 0.95,
-            "sources": ["doc_mock"],
-            "latency_ms": 100.0,
-        }
-        yield mock_rag
+def functional_rag_service_instance(mock_faq_data_for_rag_service, mock_functional_sentence_transformer):
+    service = RAGService()
+    yield service
