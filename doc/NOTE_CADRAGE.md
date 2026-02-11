@@ -24,7 +24,7 @@ Développer et déployer une API d'assistance FAQ intégrant un LLM, en suivant 
 - [x] Développer les 3 stratégies de réponse aux questions
 - [x] Réaliser un benchmark comparatif des 3 stratégies
 - [x] Implémenter l'API avec la stratégie retenue
-- [ ] Mettre en place des tests automatisés et un pipeline CI/CD
+- [x] Mettre en place des tests automatisés et un pipeline CI/CD
 
 ### 1.3 Périmètre
 

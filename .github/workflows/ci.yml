@@ -20,6 +20,6 @@ jobs:
         uv sync 
     - name: Start API and test
       run: |
-        uvicorn src.main:app --host 0.0.0.0 --port 8000 &
+        uv run uvicorn src.main:app --host 0.0.0.0 --port 8000 &
         sleep 10
-        pytest --cov=src --cov-report=xml
+        uv run pytest --cov=src --cov-report=xml

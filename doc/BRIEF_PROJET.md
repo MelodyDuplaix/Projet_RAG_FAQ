@@ -60,7 +60,7 @@ Concevoir, développer et déployer une API d'assistance FAQ intégrant un LLM, 
 
 - [x] Tests unitaires (pytest)
 - [ ] Test de non-régression sur golden set
-- [ ] Pipeline GitHub Actions
+- [x] Pipeline GitHub Actions
 
 ### Phase 7 - Monitoring & Documentation (J9)
 - [ ] Logging des requêtes/réponses
