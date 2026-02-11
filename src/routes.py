@@ -18,10 +18,7 @@ def get_rag_service():
 def get_faq_df():
     return load_faq_data()
 
-@router.get("/health", summary="Check API Health")
-def health_route():
-    """A simple health check endpoint."""
-    return {"status": "ok"}
+
 
 @router.post("/answer", response_model=AnswerResponse, summary="Get an answer using the recommended RAG strategy")
 async def get_answer(

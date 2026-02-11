@@ -56,6 +56,8 @@ Concevoir, développer et déployer une API d'assistance FAQ intégrant un LLM, 
 - **JALON 3** : API opérationnelle validée
 
 ### Phase 6 - Tests & CI/CD (J8)
+
+
 - [ ] Tests unitaires (pytest)
 - [ ] Test de non-régression sur golden set
 - [ ] Pipeline GitHub Actions
