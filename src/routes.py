@@ -32,7 +32,6 @@ async def get_answer(
         result = rag_service.answer_question(request.question)
         return AnswerResponse(**result)
     except Exception as e:
-        # TODO: improve error handling
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/faq", response_model=List[FAQ], summary="List all FAQs")

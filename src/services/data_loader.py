@@ -16,5 +16,8 @@ def load_faq_data(path="data/faq-base.json"):
             raise ValueError("The FAQ data must contain an 'id' column.")
         return faq_df
     except FileNotFoundError:
-        # TODO: improve the error handling
+        return pd.DataFrame()
+    except (json.JSONDecodeError, ValueError) as e:
+        # Log the error for debugging purposes if needed
+        # print(f"Error loading FAQ data: {e}")
         return pd.DataFrame()
