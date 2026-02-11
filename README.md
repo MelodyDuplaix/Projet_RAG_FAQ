@@ -40,3 +40,20 @@ L'API REST, développée avec FastAPI, sert de point d'entrée pour l'applicatio
     *   La récupération des N documents les plus pertinents depuis la base vectorielle.
     *   La construction d'un prompt enrichi avec le contexte récupéré et l'interrogation du LLM pour la génération de la réponse.
 *   **Service de Chargement de Données**: Module responsable du chargement et de la sérialisation des données sources de la FAQ.
+
+## Tests Unitaires et Couverture
+
+L'application est accompagnée d'un ensemble complet de tests unitaires pour garantir sa fiabilité et faciliter le développement. Les tests sont organisés dans le répertoire `tests/unit/`, avec des fixtures partagées définies dans `tests/conftest.py`.
+
+Pour exécuter les tests :
+```bash
+pytest
+```
+
+Pour mesurer la couverture de code et générer un rapport HTML :
+```bash
+pytest --cov=src --cov-report=html
+# Pour ouvrir le rapport HTML (adapté à votre OS) :
+# xdg-open htmlcov/index.html # Linux
+# open htmlcov/index.html     # macOS
+```
