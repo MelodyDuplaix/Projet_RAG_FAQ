@@ -63,8 +63,8 @@ Concevoir, développer et déployer une API d'assistance FAQ intégrant un LLM, 
 - [x] Pipeline GitHub Actions
 
 ### Phase 7 - Monitoring & Documentation (J9)
-- [ ] Logging des requêtes/réponses
-- [ ] Métriques exposées
+- [x] Logging des requêtes/réponses
+- [x] Métriques exposées
 - [ ] Documentation technique complète
 
 ### Phase 8 - Finalisation (J10)
