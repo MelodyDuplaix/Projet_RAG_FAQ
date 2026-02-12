@@ -40,6 +40,8 @@ L'API REST, développée avec FastAPI, sert de point d'entrée pour l'applicatio
     *   La récupération des N documents les plus pertinents depuis la base vectorielle.
     *   La construction d'un prompt enrichi avec le contexte récupéré et l'interrogation du LLM pour la génération de la réponse.
 *   **Service de Chargement de Données**: Module responsable du chargement et de la sérialisation des données sources de la FAQ.
+*   **Middleware de Logging**: Enregistre les requêtes et temps de réponse, détectant les latences élevées.
+*   **Module de Métriques (Prometheus)**: Expose les métriques clés (requêtes, latences, confiance RAG) pour le monitoring via Prometheus et Grafana.
 
 ## Tests Unitaires et Couverture
 
@@ -85,4 +87,5 @@ pytest --cov=src --cov-report=html
     *   **Prometheus UI**: `http://localhost:9090`
     *   **Grafana UI**: `http://localhost:3000` (identifiants par défaut : `admin`/`admin`)
 
-    Vous devrez configurer Prometheus comme source de données dans Grafana (URL : `http://host.docker.internal:9090` si vous êtes sur Docker Desktop/macOS/Windows ou `http://<VOTRE_IP_LOCALE>:9090` sur Linux). Les tableaux de bord provisionnés seront automatiquement chargés si des fichiers JSON sont placés dans `grafana/dashboards`.
+    Vous devrez configurer Prometheus comme source de données dans Grafana (URL : `http://host.docker.internal:9090` si vous êtes sur Docker Desktop/macOS/Windows ou `http://<VOTRE_IP_LOCALE>:9090` sur Linux).
+    Les dashboards Grafana sont provisionnés automatiquement `grafana/dashboards/`.

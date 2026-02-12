@@ -65,8 +65,8 @@ Concevoir, développer et déployer une API d'assistance FAQ intégrant un LLM, 
 ### Phase 7 - Monitoring & Documentation (J9)
 - [x] Logging des requêtes/réponses
 - [x] Métriques exposées
-- [ ] Documentation technique complète
-
+- [x] Documentation technique complète
+Non
 ### Phase 8 - Finalisation (J10)
 - [ ] Tous les livrables finalisés
 - [ ] Présentation préparée
