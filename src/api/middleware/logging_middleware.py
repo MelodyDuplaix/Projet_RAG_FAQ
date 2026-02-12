@@ -30,4 +30,4 @@ class LoggingMiddleware(BaseHTTPMiddleware):
             if duration_ms > 3000:
                 logger.warning(f" High latency for {request.method} {request.url.path}: {duration_ms:.0f}ms")
             
-            return response
+        return response
