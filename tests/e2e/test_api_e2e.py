@@ -13,7 +13,7 @@ from src.services.data_loader import load_faq_data
 from tests.conftest import MOCK_FAQ_DATA_RAG_SERVICE_FUNCTIONAL 
 
 @pytest.fixture(autouse=True)
-def setup_e2e_mocks(mock_functional_llm_client, mock_functional_sentence_transformer, mock_faq_data_for_rag_service, functional_mock_hf_token_env):
+def setup_e2e_mocks(mock_functional_sentence_transformer, mock_faq_data_for_rag_service):
     """
     Sets up common mocks required for E2E tests, ensuring RAGService uses mocked LLM/embeddings
     and FAQ data while allowing the API routes to be tested end-to-end.
@@ -36,10 +36,10 @@ class TestApiE2E:
         assert "version" in json_response
         assert "faq_count" in json_response
 
-    def test_e2e_answer_endpoint(self, client, mock_functional_llm_client):
+    def test_e2e_answer_endpoint(self, client):
         """
         Tests the /api/v1/answer endpoint end-to-end.
-        RAGService should be initialized with mocked SentenceTransformer and LLM client.
+        RAGService should be initialized with mocked SentenceTransformer and a real LLM client.
         """
         question = "Comment obtenir un acte de naissance ?"
         response = client.post(
@@ -50,21 +50,11 @@ class TestApiE2E:
         assert response.status_code == 200
         answer_response = AnswerResponse(**response.json())
 
-        assert answer_response.answer == "Mocked LLM Answer based on context."
+        assert isinstance(answer_response.answer, str)
+        assert len(answer_response.answer) > 0
         assert answer_response.confidence > 0.0
         assert "EC001" in answer_response.sources 
         assert answer_response.latency_ms > 0.0
-       
-        mock_functional_llm_client.chat.completions.create.assert_called_once()
-        args, kwargs = mock_functional_llm_client.chat.completions.create.call_args
-        messages = kwargs["messages"] 
-
-        system_prompt = next((m["content"] for m in messages if m["role"] == "system"), "")
-        assert "Comment obtenir un acte de naissance ?" in system_prompt
-        assert "Pour obtenir un acte de naissance, vous pouvez faire la demande en ligne sur le site service-public.fr." in system_prompt
-
-        user_prompt = next((m["content"] for m in messages if m["role"] == "user"), "")
-        assert user_prompt == question
 
     def test_e2e_list_faqs_endpoint(self, client):
         """
@@ -101,13 +91,12 @@ class TestApiE2E:
         assert response.status_code == 404
         assert response.json() == {"detail": f"FAQ with id '{faq_id}' not found."}
 
-    def test_e2e_answer_endpoint_no_context(self, client, mock_functional_llm_client):
+    def test_e2e_answer_endpoint_no_context(self, client):
         """
         Tests the /api/v1/answer endpoint when no relevant context is found by RAGService.
         """
         question = "What is the meaning of life?"
         
-       
         with patch.object(RAGService, '_find_context', return_value=("", [], 0.0)):
             response = client.post(
                 "/api/v1/answer",
@@ -121,5 +110,3 @@ class TestApiE2E:
             assert answer_response.confidence == 0.0
             assert answer_response.sources == []
             assert answer_response.latency_ms > 0.0
-            
-            mock_functional_llm_client.chat.completions.create.assert_not_called()

@@ -56,13 +56,13 @@ def test_answer_question_no_context(mock_load_faq_data_rag, mock_sentence_transf
         assert response["sources"] == []
         assert "latency_ms" in response
 
-def test_get_llm_client_no_token(mock_hf_token): 
+def test_get_llm_client_no_token(): 
     with patch.dict(os.environ, {}, clear=True):
+        get_llm_client.cache_clear()
         with pytest.raises(RuntimeError, match="HF_TOKEN missing from .env"):
-            get_llm_client.cache_clear()
             get_llm_client()
 
-def test_get_llm_client_with_token(mock_inference_client, mock_hf_token):
+def test_get_llm_client_with_token(mock_inference_client):
     with patch.dict(os.environ, {"HF_TOKEN": "test_token"}):
         get_llm_client.cache_clear()
         client = get_llm_client()

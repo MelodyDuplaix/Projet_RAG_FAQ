@@ -68,9 +68,9 @@ Concevoir, développer et déployer une API d'assistance FAQ intégrant un LLM, 
 - [x] Documentation technique complète
 Non
 ### Phase 8 - Finalisation (J10)
-- [ ] Tous les livrables finalisés
-- [ ] Présentation préparée
-- [ ] Démonstration fonctionnelle
+- [x] Tous les livrables finalisés
+- [x] Présentation préparée
+- [x] Démonstration fonctionnelle
 
 ## Critères d'évaluation du benchmark
 

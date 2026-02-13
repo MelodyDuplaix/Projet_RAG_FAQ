@@ -133,15 +133,7 @@ def mock_functional_llm_client():
         mock_get_llm_client.return_value = mock_client
         yield mock_client
 
-@pytest.fixture(autouse=True)
-def mock_hf_token():
-    with patch.dict(os.environ, {"HF_TOKEN": "test_token"}):
-        yield
 
-@pytest.fixture
-def functional_mock_hf_token_env():
-    with patch.dict(os.environ, {"HF_TOKEN": "test_functional_token"}):
-        yield
 
 @pytest.fixture(autouse=True)
 def reset_rag_service_instance_routes():

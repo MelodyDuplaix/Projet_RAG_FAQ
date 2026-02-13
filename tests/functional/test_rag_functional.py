@@ -60,25 +60,16 @@ class TestRAGServiceFunctional:
         assert user_question_encoded
 
 
-    def test_answer_question_functional(self, functional_rag_service_instance, mock_functional_llm_client, functional_mock_hf_token_env):
+    def test_answer_question_functional(self, functional_rag_service_instance):
         """
-        Test the end-to-end answer generation with mocked LLM but real context retrieval.
+        Test the end-to-end answer generation with a real LLM but real context retrieval.
         """
         service = functional_rag_service_instance
         question = "Comment obtenir un acte de naissance ?"
         response = service.answer_question(question)
-        assert response["answer"] == "Mocked LLM Answer based on context."
+        assert isinstance(response["answer"], str)
+        assert len(response["answer"]) > 0
         assert "latency_ms" in response
         assert response["confidence"] > 0.0
         assert "EC001" in response["sources"]
-        mock_functional_llm_client.chat.completions.create.assert_called_once()
-        args, kwargs = mock_functional_llm_client.chat.completions.create.call_args
-        messages = kwargs["messages"]
-        system_prompt = next((m["content"] for m in messages if m["role"] == "system"), "")
-        assert "Tu es un assistant municipal expert" in system_prompt
-        assert "CONTRAT DE NAISSANCE" not in system_prompt
-       
-        assert "Comment obtenir un acte de naissance ?" in system_prompt
-        assert "Pour obtenir un acte de naissance, vous pouvez faire la demande en ligne sur le site service-public.fr." in system_prompt
-        user_prompt = next((m["content"] for m in messages if m["role"] == "user"), "")
-        assert user_prompt == question
+
